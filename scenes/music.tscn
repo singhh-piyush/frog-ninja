@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlx5rhinjb8n3"]
+
+[ext_resource type="AudioStream" uid="uid://bn34m5aeb7v07" path="res://assets/music/Kubbi - Up In My Jam  NO COPYRIGHT 8-bit Music.mp3" id="1_wp4xp"]
+
+[node name="Music" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_wp4xp")
+autoplay = true
+bus = &"Music"

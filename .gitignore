@@ -1,0 +1,9 @@
+.godot/
+.import/
+export_presets.cfg
+*.csv.import
+.mono/
+*.csproj.user
+.DS_Store
+Thumbs.db
+[Dd]esktop.ini
