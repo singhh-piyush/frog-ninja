@@ -34,6 +34,6 @@ func _process(delta):
 	if player_detected:
 		animated_sprite.play("run")
 	else:
-		animated_sprite.play("walk")
+		animated_sprite.play("default")
 
 	position.x += direction * speed * delta
