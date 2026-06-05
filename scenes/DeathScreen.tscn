@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2vcxm00jjxtg"]
+[gd_scene load_steps=6 format=3 uid="uid://c2vcxm00jjxtg"]
 
 [ext_resource type="Script" path="res://scripts/death_screen.gd" id="1_ds"]
 [ext_resource type="Script" path="res://scripts/hover_button.gd" id="2_hover"]
 [ext_resource type="Theme" path="res://ui/menu_theme.tres" id="3_theme"]
-[ext_resource type="Texture2D" uid="uid://y4wh27gnb1mn" path="res://assets/background0.png" id="4_bg"]
+[ext_resource type="Texture2D" uid="uid://ce0lft4a7ca8j" path="res://assets/menu_bg/frame_00.png" id="4_bg"]
+[ext_resource type="Script" uid="uid://b027q26qwwa31" path="res://scripts/animated_bg.gd" id="5_abg"]
 
 [node name="DeathScreen" type="CanvasLayer"]
 process_mode = 3
@@ -20,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource("4_bg")
 stretch_mode = 6
+script = ExtResource("5_abg")
 
 [node name="Center" type="CenterContainer" parent="Root"]
 anchor_right = 1.0
@@ -35,6 +37,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "You Died!"
 horizontal_alignment = 1
+size_flags_horizontal = 4
 
 [node name="Card" type="PanelContainer" parent="Root/Center/Layout"]
 layout_mode = 2

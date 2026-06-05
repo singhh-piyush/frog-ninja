@@ -1,8 +1,5 @@
 extends CanvasLayer
 
-func _ready() -> void:
-	MenuAnim.open($Root, $Root/Center/Layout/Card)
-
 func _on_restart_pressed() -> void:
 	GameState.restart(get_viewport().get_mouse_position())
 

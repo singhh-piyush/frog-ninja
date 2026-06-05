@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
-// White circle wipe. Cover: white fills inside a growing circle (screen goes white).
-// Reveal (invert=1): white fills OUTSIDE the circle, so a growing hole irises the scene back in.
+// Black circle wipe. Cover: black fills inside a growing circle (screen goes black).
+// Reveal (invert=1): black fills OUTSIDE the circle, so a growing hole irises the scene back in.
 // aspect = viewport width / height keeps the circle round on 16:9.
 
 uniform float radius = 0.0;
@@ -13,5 +13,5 @@ void fragment() {
 	vec2 d = UV - center;
 	d.x *= aspect;
 	float inside = step(length(d), radius);
-	COLOR = vec4(1.0, 1.0, 1.0, mix(inside, 1.0 - inside, invert));
+	COLOR = vec4(0.0, 0.0, 0.0, mix(inside, 1.0 - inside, invert));
 }

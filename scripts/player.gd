@@ -96,8 +96,11 @@ func die():
 	play_animation("hit")
 	$Timer.start()
 
-# After the hit animation has played briefly, show the death/restart screen.
+# After the hit animation has played briefly, show the death/restart screen behind a circle wipe.
 func _on_timer_timeout():
+	Transition.wipe(_show_death_screen)
+
+func _show_death_screen():
 	var screen = preload("res://scenes/DeathScreen.tscn").instantiate()
 	get_tree().current_scene.add_child(screen)
 	get_tree().paused = true

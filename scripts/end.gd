@@ -14,6 +14,10 @@ func _on_body_entered(body):
 	$AnimatedSprite2D.play("pressed")
 	await $AnimatedSprite2D.animation_finished
 
+	# Iris to black, then show the level-complete popup over the paused level.
+	Transition.wipe(_show_level_complete)
+
+func _show_level_complete():
 	var gm = get_tree().get_first_node_in_group("game_manager")
 	var coins = gm.score if gm else 0
 

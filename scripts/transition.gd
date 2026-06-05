@@ -1,8 +1,10 @@
 extends CanvasLayer
 
-# Autoload "Transition": a full-screen white circle-wipe between scenes. The circle grows from the
-# click point until the screen is white (cover), the scene swaps, then an iris opens to reveal it.
+# Autoload "Transition": a full-screen black circle-wipe between scenes. The circle grows from the
+# click point until the screen is black (cover), the scene swaps, then an iris opens to reveal it.
 # Runs with process_mode = ALWAYS so the cover animation plays even when an overlay paused the tree.
+# `wipe()` reuses the same cover/reveal for in-scene pop-ups (pause menu, death, level complete):
+# it covers, runs a caller-supplied action (toggle visibility / spawn overlay / set paused), reveals.
 
 const DUR := 0.35
 const MAX_RADIUS := 2.2   # enough to cover the far corner even when the circle starts at an edge
@@ -35,6 +37,16 @@ func reload_scene(center_px := Vector2(-1, -1)) -> void:
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 	await get_tree().process_frame
+	await get_tree().process_frame
+	await _reveal(center_px)
+	busy = false
+
+func wipe(action: Callable, center_px := Vector2(-1, -1)) -> void:
+	if busy:
+		return
+	busy = true
+	await _cover(center_px)
+	action.call()   # toggle overlay visibility / spawn pop-up / set get_tree().paused
 	await get_tree().process_frame
 	await _reveal(center_px)
 	busy = false

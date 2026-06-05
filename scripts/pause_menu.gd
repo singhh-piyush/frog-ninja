@@ -7,7 +7,6 @@ var paused_by_me = false
 var animating = false
 
 @onready var overlay = $Overlay
-@onready var overlay_content = $Overlay/Center/Layout/Card
 
 func _ready():
 	overlay.visible = false
@@ -27,18 +26,24 @@ func _toggle():
 		_open()
 
 func _open():
+	animating = true
+	await Transition.wipe(_do_open, get_viewport().get_mouse_position())
+	animating = false
+
+func _do_open():
 	paused_by_me = true
 	get_tree().paused = true
 	overlay.visible = true
-	MenuAnim.open(overlay, overlay_content)
 
 func _close():
 	animating = true
-	await MenuAnim.close(overlay).finished
-	overlay.visible = false
+	await Transition.wipe(_do_close, get_viewport().get_mouse_position())
 	animating = false
-	paused_by_me = false
+
+func _do_close():
+	overlay.visible = false
 	get_tree().paused = false
+	paused_by_me = false
 
 func _on_menu_button_pressed():
 	$MenuButton.bounce()
