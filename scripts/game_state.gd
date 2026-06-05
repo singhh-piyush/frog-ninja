@@ -1,24 +1,26 @@
 extends Node
 
 # Single source of truth for navigation between menu, levels and the win screen.
-# Registered as an autoload singleton named "GameState".
+# Registered as an autoload singleton named "GameState". All scene changes route through the
+# Transition autoload so they play the white circle wipe; `from` is the click point in viewport
+# pixels (defaults to screen centre when off-screen / unspecified).
 
 const LEVELS := ["res://scenes/Level_1.tscn", "res://scenes/Level_2.tscn"]
 const MAIN_MENU := "res://scenes/MainMenu.tscn"
 const WIN_SCREEN := "res://scenes/WinScreen.tscn"
 
-func load_level(path: String) -> void:
-	get_tree().paused = false
-	get_tree().change_scene_to_file(path)
+func load_level(path: String, from := Vector2(-1, -1)) -> void:
+	Transition.change_scene(path, from)
 
-func go_to_menu() -> void:
-	get_tree().paused = false
-	get_tree().change_scene_to_file(MAIN_MENU)
+func go_to_menu(from := Vector2(-1, -1)) -> void:
+	Transition.change_scene(MAIN_MENU, from)
 
-func advance_from(current_path: String) -> void:
+func restart(from := Vector2(-1, -1)) -> void:
+	Transition.reload_scene(from)
+
+func advance_from(current_path: String, from := Vector2(-1, -1)) -> void:
 	var idx := LEVELS.find(current_path)
-	get_tree().paused = false
 	if idx == -1 or idx + 1 >= LEVELS.size():
-		get_tree().change_scene_to_file(WIN_SCREEN)
+		Transition.change_scene(WIN_SCREEN, from)
 	else:
-		get_tree().change_scene_to_file(LEVELS[idx + 1])
+		Transition.change_scene(LEVELS[idx + 1], from)

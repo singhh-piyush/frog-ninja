@@ -18,3 +18,11 @@ func _center_pivot():
 
 func _scale_to(s: float):
 	create_tween().tween_property(self, "scale", Vector2.ONE * s, 0.08)
+
+# Quick squash-and-settle pop, used for click feedback (e.g. the pause gear).
+func bounce():
+	_center_pivot()
+	var t := create_tween()
+	t.tween_property(self, "scale", Vector2.ONE * 1.2, 0.06)
+	t.tween_property(self, "scale", Vector2.ONE, 0.12) \
+		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_mm"]
 [ext_resource type="Script" path="res://scripts/hover_button.gd" id="2_hover"]
 [ext_resource type="Theme" path="res://ui/menu_theme.tres" id="3_theme"]
-[ext_resource type="Texture2D" uid="uid://8tqc8yssr3vg" path="res://assets/Free/Background/Green.png" id="4_bg"]
+[ext_resource type="Texture2D" uid="uid://y4wh27gnb1mn" path="res://assets/background0.png" id="4_bg"]
 [ext_resource type="Texture2D" uid="uid://cmsadsesv7hur" path="res://assets/Free/Menu/Levels/01.png" id="8_l1"]
 [ext_resource type="Texture2D" uid="uid://b1rw8ixxgatr3" path="res://assets/Free/Menu/Levels/02.png" id="9_l2"]
 [ext_resource type="Texture2D" uid="uid://cpci72sm3d6w2" path="res://assets/Free/Menu/Levels/03.png" id="10_l3"]
@@ -20,11 +20,11 @@ theme = ExtResource("3_theme")
 script = ExtResource("1_mm")
 
 [node name="Background" type="TextureRect" parent="."]
-texture_repeat = 2
+texture_filter = 1
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource("4_bg")
-stretch_mode = 1
+stretch_mode = 6
 
 [node name="MainPanel" type="CenterContainer" parent="."]
 anchor_right = 1.0

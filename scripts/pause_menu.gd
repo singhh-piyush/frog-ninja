@@ -41,14 +41,14 @@ func _close():
 	get_tree().paused = false
 
 func _on_menu_button_pressed():
+	$MenuButton.bounce()
 	_toggle()
 
 func _on_resume_pressed():
 	_toggle()
 
 func _on_restart_pressed():
-	get_tree().paused = false
-	get_tree().reload_current_scene()
+	GameState.restart(get_viewport().get_mouse_position())
 
 func _on_main_menu_pressed():
-	GameState.go_to_menu()
+	GameState.go_to_menu(get_viewport().get_mouse_position())

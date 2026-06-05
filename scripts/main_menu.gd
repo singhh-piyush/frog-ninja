@@ -11,7 +11,7 @@ func _ready():
 	MenuAnim.open(self, main_panel.get_node("Layout/Card"))
 
 func _on_start_pressed():
-	GameState.load_level(GameState.LEVELS[0])
+	GameState.load_level(GameState.LEVELS[0], get_viewport().get_mouse_position())
 
 func _on_level_select_pressed():
 	await _swap(main_panel, level_panel)
@@ -30,7 +30,7 @@ func _swap(from_panel: Control, to_panel: Control):
 	switching = false
 
 func _on_level_1_pressed():
-	GameState.load_level("res://scenes/Level_1.tscn")
+	GameState.load_level("res://scenes/Level_1.tscn", get_viewport().get_mouse_position())
 
 func _on_level_2_pressed():
-	GameState.load_level("res://scenes/Level_2.tscn")
+	GameState.load_level("res://scenes/Level_2.tscn", get_viewport().get_mouse_position())

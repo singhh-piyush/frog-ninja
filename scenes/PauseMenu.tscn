@@ -4,17 +4,17 @@
 [ext_resource type="Script" path="res://scripts/hover_button.gd" id="2_hover"]
 [ext_resource type="Theme" path="res://ui/menu_theme.tres" id="3_theme"]
 [ext_resource type="Texture2D" uid="uid://f3bysys1u46e" path="res://assets/Free/Menu/Buttons/Settings.png" id="4_settings"]
-[ext_resource type="Texture2D" uid="uid://8tqc8yssr3vg" path="res://assets/Free/Background/Green.png" id="5_bg"]
+[ext_resource type="Texture2D" uid="uid://y4wh27gnb1mn" path="res://assets/background0.png" id="5_bg"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_pm")
 
 [node name="MenuButton" type="Button" parent="."]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 26.0
-offset_bottom = 26.0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 46.0
+offset_bottom = 46.0
 flat = true
 icon = ExtResource("4_settings")
 expand_icon = true
@@ -26,11 +26,11 @@ anchor_bottom = 1.0
 theme = ExtResource("3_theme")
 
 [node name="Bg" type="TextureRect" parent="Overlay"]
-texture_repeat = 2
+texture_filter = 1
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource("5_bg")
-stretch_mode = 1
+stretch_mode = 6
 
 [node name="Center" type="CenterContainer" parent="Overlay"]
 anchor_right = 1.0
