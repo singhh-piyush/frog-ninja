@@ -1,12 +1,10 @@
-[gd_scene format=3 uid="uid://bgy3eferle3ts"]
+[gd_scene load_steps=6 format=3 uid="uid://bgy3eferle3ts"]
 
 [ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_pm"]
 [ext_resource type="Script" path="res://scripts/hover_button.gd" id="2_hover"]
 [ext_resource type="FontFile" uid="uid://cgxwkt66bdw2" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="3_font"]
 [ext_resource type="Texture2D" uid="uid://f3bysys1u46e" path="res://assets/Free/Menu/Buttons/Settings.png" id="4_settings"]
-[ext_resource type="Texture2D" uid="uid://bmovf0i61tnyk" path="res://assets/Free/Menu/Buttons/Play.png" id="5_play"]
-[ext_resource type="Texture2D" uid="uid://b0nnouycskk3u" path="res://assets/Free/Menu/Buttons/Restart.png" id="6_restart"]
-[ext_resource type="Texture2D" uid="uid://bkkx5ainf3gpt" path="res://assets/Free/Menu/Buttons/Back.png" id="7_back"]
+[ext_resource type="Texture2D" uid="uid://8tqc8yssr3vg" path="res://assets/Free/Background/Green.png" id="5_bg"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
@@ -26,10 +24,12 @@ script = ExtResource("2_hover")
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Dim" type="ColorRect" parent="Overlay"]
+[node name="Bg" type="TextureRect" parent="Overlay"]
+texture_repeat = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color(0, 0, 0, 0.7)
+texture = ExtResource("5_bg")
+stretch_mode = 1
 
 [node name="Center" type="CenterContainer" parent="Overlay"]
 anchor_right = 1.0
@@ -41,49 +41,43 @@ theme_override_constants/separation = 8
 alignment = 1
 
 [node name="Title" type="Label" parent="Overlay/Center/VBox"]
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_font")
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 20
 text = "Paused"
 horizontal_alignment = 1
 
 [node name="ResumeButton" type="Button" parent="Overlay/Center/VBox"]
-custom_minimum_size = Vector2(0, 26)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 0.9, 0.4, 1)
-theme_override_constants/h_separation = 6
+custom_minimum_size = Vector2(0, 24)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.85, 0.2, 1)
 theme_override_fonts/font = ExtResource("3_font")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 13
 text = "Resume"
-icon = ExtResource("5_play")
 flat = true
-alignment = 0
+alignment = 1
 script = ExtResource("2_hover")
 
 [node name="RestartButton" type="Button" parent="Overlay/Center/VBox"]
-custom_minimum_size = Vector2(0, 26)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 0.9, 0.4, 1)
-theme_override_constants/h_separation = 6
+custom_minimum_size = Vector2(0, 24)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.85, 0.2, 1)
 theme_override_fonts/font = ExtResource("3_font")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 13
 text = "Restart"
-icon = ExtResource("6_restart")
 flat = true
-alignment = 0
+alignment = 1
 script = ExtResource("2_hover")
 
 [node name="MenuButton" type="Button" parent="Overlay/Center/VBox"]
-custom_minimum_size = Vector2(0, 26)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 0.9, 0.4, 1)
-theme_override_constants/h_separation = 6
+custom_minimum_size = Vector2(0, 24)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.85, 0.2, 1)
 theme_override_fonts/font = ExtResource("3_font")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 13
 text = "Main Menu"
-icon = ExtResource("7_back")
 flat = true
-alignment = 0
+alignment = 1
 script = ExtResource("2_hover")
 
 [connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

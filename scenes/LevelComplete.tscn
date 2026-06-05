@@ -3,60 +3,56 @@
 [ext_resource type="Script" path="res://scripts/level_complete.gd" id="1_lc"]
 [ext_resource type="FontFile" uid="uid://cgxwkt66bdw2" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="2_font"]
 [ext_resource type="Script" path="res://scripts/hover_button.gd" id="3_hover"]
-[ext_resource type="Texture2D" uid="uid://cpcstg52flbqx" path="res://assets/Free/Menu/Buttons/Next.png" id="4_next"]
+[ext_resource type="Texture2D" uid="uid://8tqc8yssr3vg" path="res://assets/Free/Background/Green.png" id="4_bg"]
 
 [node name="LevelComplete" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_lc")
 
-[node name="Dim" type="ColorRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color(0, 0, 0, 0.6)
-
-[node name="Center" type="CenterContainer" parent="."]
+[node name="Root" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Panel" type="PanelContainer" parent="Center"]
+[node name="Bg" type="TextureRect" parent="Root"]
+texture_repeat = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("4_bg")
+stretch_mode = 1
 
-[node name="Margin" type="MarginContainer" parent="Center/Panel"]
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 14
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 14
+[node name="Center" type="CenterContainer" parent="Root"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 
-[node name="VBox" type="VBoxContainer" parent="Center/Panel/Margin"]
+[node name="VBox" type="VBoxContainer" parent="Root/Center"]
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="Title" type="Label" parent="Center/Panel/Margin/VBox"]
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+[node name="Title" type="Label" parent="Root/Center/VBox"]
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_font")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "Level Complete!"
 horizontal_alignment = 1
 
-[node name="CoinsLabel" type="Label" parent="Center/Panel/Margin/VBox"]
+[node name="CoinsLabel" type="Label" parent="Root/Center/VBox"]
 unique_name_in_owner = true
-theme_override_colors/font_color = Color(1, 0.85, 0.2, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_font")
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 12
 text = "Coins collected: 0"
 horizontal_alignment = 1
 
-[node name="NextButton" type="Button" parent="Center/Panel/Margin/VBox"]
-custom_minimum_size = Vector2(0, 26)
+[node name="NextButton" type="Button" parent="Root/Center/VBox"]
+custom_minimum_size = Vector2(0, 24)
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 0.9, 0.4, 1)
-theme_override_constants/h_separation = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.85, 0.2, 1)
 theme_override_fonts/font = ExtResource("2_font")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 13
 text = "Next"
-icon = ExtResource("4_next")
 flat = true
-alignment = 0
+alignment = 1
 script = ExtResource("3_hover")
 
-[connection signal="pressed" from="Center/Panel/Margin/VBox/NextButton" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Root/Center/VBox/NextButton" to="." method="_on_next_pressed"]

@@ -4,8 +4,10 @@ extends CanvasLayer
 # Resume / Restart / Main Menu. Instanced once into each level.
 
 var paused_by_me = false
+var animating = false
 
 @onready var overlay = $Overlay
+@onready var overlay_content = $Overlay/Center/VBox
 
 func _ready():
 	overlay.visible = false
@@ -16,12 +18,27 @@ func _unhandled_input(event):
 		get_viewport().set_input_as_handled()
 
 func _toggle():
-	# Don't fight another modal (level-complete popup, death screen) that owns the pause.
-	if get_tree().paused and not paused_by_me:
+	if animating:
 		return
-	paused_by_me = not paused_by_me
-	get_tree().paused = paused_by_me
-	overlay.visible = paused_by_me
+	if paused_by_me:
+		_close()
+	# Don't fight another modal (level-complete popup, death screen) that owns the pause.
+	elif not get_tree().paused:
+		_open()
+
+func _open():
+	paused_by_me = true
+	get_tree().paused = true
+	overlay.visible = true
+	MenuAnim.open(overlay, overlay_content)
+
+func _close():
+	animating = true
+	await MenuAnim.close(overlay).finished
+	overlay.visible = false
+	animating = false
+	paused_by_me = false
+	get_tree().paused = false
 
 func _on_menu_button_pressed():
 	_toggle()
