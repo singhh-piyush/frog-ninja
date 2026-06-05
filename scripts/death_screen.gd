@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 func _ready() -> void:
-	MenuAnim.open($Root, $Root/Center/VBox)
+	MenuAnim.open($Root, $Root/Center/Card)
 
 func _on_restart_pressed() -> void:
 	get_tree().paused = false

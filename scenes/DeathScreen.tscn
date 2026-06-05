@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2vcxm00jjxtg"]
+[gd_scene load_steps=5 format=3 uid="uid://c2vcxm00jjxtg"]
 
 [ext_resource type="Script" path="res://scripts/death_screen.gd" id="1_ds"]
-[ext_resource type="FontFile" uid="uid://cgxwkt66bdw2" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="2_font"]
-[ext_resource type="Script" path="res://scripts/hover_button.gd" id="3_hover"]
+[ext_resource type="Script" path="res://scripts/hover_button.gd" id="2_hover"]
+[ext_resource type="Theme" path="res://ui/menu_theme.tres" id="3_theme"]
 [ext_resource type="Texture2D" uid="uid://8tqc8yssr3vg" path="res://assets/Free/Background/Green.png" id="4_bg"]
 
 [node name="DeathScreen" type="CanvasLayer"]
@@ -12,6 +12,7 @@ script = ExtResource("1_ds")
 [node name="Root" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource("3_theme")
 
 [node name="Bg" type="TextureRect" parent="Root"]
 texture_repeat = 2
@@ -24,39 +25,32 @@ stretch_mode = 1
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="VBox" type="VBoxContainer" parent="Root/Center"]
+[node name="Card" type="PanelContainer" parent="Root/Center"]
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="Root/Center/Card"]
+layout_mode = 2
 custom_minimum_size = Vector2(150, 0)
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="Title" type="Label" parent="Root/Center/VBox"]
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_font")
+[node name="Title" type="Label" parent="Root/Center/Card/VBox"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "You Died!"
 horizontal_alignment = 1
 
-[node name="RestartButton" type="Button" parent="Root/Center/VBox"]
-custom_minimum_size = Vector2(0, 24)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(1, 0.85, 0.2, 1)
-theme_override_fonts/font = ExtResource("2_font")
-theme_override_font_sizes/font_size = 13
+[node name="RestartButton" type="Button" parent="Root/Center/Card/VBox"]
+layout_mode = 2
 text = "Restart"
-flat = true
 alignment = 1
-script = ExtResource("3_hover")
+script = ExtResource("2_hover")
 
-[node name="MenuButton" type="Button" parent="Root/Center/VBox"]
-custom_minimum_size = Vector2(0, 24)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(1, 0.85, 0.2, 1)
-theme_override_fonts/font = ExtResource("2_font")
-theme_override_font_sizes/font_size = 13
+[node name="MenuButton" type="Button" parent="Root/Center/Card/VBox"]
+layout_mode = 2
 text = "Main Menu"
-flat = true
 alignment = 1
-script = ExtResource("3_hover")
+script = ExtResource("2_hover")
 
-[connection signal="pressed" from="Root/Center/VBox/RestartButton" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="Root/Center/VBox/MenuButton" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Root/Center/Card/VBox/RestartButton" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Root/Center/Card/VBox/MenuButton" to="." method="_on_main_menu_pressed"]

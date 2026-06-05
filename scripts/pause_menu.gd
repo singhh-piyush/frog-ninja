@@ -7,7 +7,7 @@ var paused_by_me = false
 var animating = false
 
 @onready var overlay = $Overlay
-@onready var overlay_content = $Overlay/Center/VBox
+@onready var overlay_content = $Overlay/Center/Card
 
 func _ready():
 	overlay.visible = false
