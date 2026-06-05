@@ -30,28 +30,33 @@ stretch_mode = 1
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Card" type="PanelContainer" parent="MainPanel"]
+[node name="Layout" type="VBoxContainer" parent="MainPanel"]
 layout_mode = 2
-
-[node name="VBox" type="VBoxContainer" parent="MainPanel/Card"]
-layout_mode = 2
-custom_minimum_size = Vector2(160, 0)
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="TitleLabel" type="Label" parent="MainPanel/Card/VBox"]
+[node name="TitleLabel" type="Label" parent="MainPanel/Layout"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 26
+theme_override_font_sizes/font_size = 28
 text = "FROG NINJA"
 horizontal_alignment = 1
 
-[node name="StartButton" type="Button" parent="MainPanel/Card/VBox"]
+[node name="Card" type="PanelContainer" parent="MainPanel/Layout"]
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="MainPanel/Layout/Card"]
+layout_mode = 2
+custom_minimum_size = Vector2(160, 0)
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="StartButton" type="Button" parent="MainPanel/Layout/Card/VBox"]
 layout_mode = 2
 text = "Start Game"
 alignment = 1
 script = ExtResource("2_hover")
 
-[node name="LevelSelectButton" type="Button" parent="MainPanel/Card/VBox"]
+[node name="LevelSelectButton" type="Button" parent="MainPanel/Layout/Card/VBox"]
 layout_mode = 2
 text = "Level Select"
 alignment = 1
@@ -62,40 +67,45 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Card" type="PanelContainer" parent="LevelSelectPanel"]
+[node name="Layout" type="VBoxContainer" parent="LevelSelectPanel"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="SelectTitle" type="Label" parent="LevelSelectPanel/Layout"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "SELECT LEVEL"
+horizontal_alignment = 1
+
+[node name="Card" type="PanelContainer" parent="LevelSelectPanel/Layout"]
 layout_mode = 2
 
-[node name="VBox" type="VBoxContainer" parent="LevelSelectPanel/Card"]
+[node name="VBox" type="VBoxContainer" parent="LevelSelectPanel/Layout/Card"]
 layout_mode = 2
 theme_override_constants/separation = 12
 alignment = 1
 
-[node name="SelectTitle" type="Label" parent="LevelSelectPanel/Card/VBox"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "SELECT LEVEL"
-horizontal_alignment = 1
-
-[node name="Tiles" type="HBoxContainer" parent="LevelSelectPanel/Card/VBox"]
+[node name="Tiles" type="HBoxContainer" parent="LevelSelectPanel/Layout/Card/VBox"]
 layout_mode = 2
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="Level1" type="Button" parent="LevelSelectPanel/Card/VBox/Tiles"]
+[node name="Level1" type="Button" parent="LevelSelectPanel/Layout/Card/VBox/Tiles"]
 custom_minimum_size = Vector2(40, 36)
 layout_mode = 2
 icon = ExtResource("8_l1")
 expand_icon = true
 script = ExtResource("2_hover")
 
-[node name="Level2" type="Button" parent="LevelSelectPanel/Card/VBox/Tiles"]
+[node name="Level2" type="Button" parent="LevelSelectPanel/Layout/Card/VBox/Tiles"]
 custom_minimum_size = Vector2(40, 36)
 layout_mode = 2
 icon = ExtResource("9_l2")
 expand_icon = true
 script = ExtResource("2_hover")
 
-[node name="Locked3" type="Button" parent="LevelSelectPanel/Card/VBox/Tiles"]
+[node name="Locked3" type="Button" parent="LevelSelectPanel/Layout/Card/VBox/Tiles"]
 modulate = Color(0.4, 0.4, 0.4, 1)
 custom_minimum_size = Vector2(40, 36)
 layout_mode = 2
@@ -103,7 +113,7 @@ disabled = true
 icon = ExtResource("10_l3")
 expand_icon = true
 
-[node name="Locked4" type="Button" parent="LevelSelectPanel/Card/VBox/Tiles"]
+[node name="Locked4" type="Button" parent="LevelSelectPanel/Layout/Card/VBox/Tiles"]
 modulate = Color(0.4, 0.4, 0.4, 1)
 custom_minimum_size = Vector2(40, 36)
 layout_mode = 2
@@ -111,7 +121,7 @@ disabled = true
 icon = ExtResource("11_l4")
 expand_icon = true
 
-[node name="Locked5" type="Button" parent="LevelSelectPanel/Card/VBox/Tiles"]
+[node name="Locked5" type="Button" parent="LevelSelectPanel/Layout/Card/VBox/Tiles"]
 modulate = Color(0.4, 0.4, 0.4, 1)
 custom_minimum_size = Vector2(40, 36)
 layout_mode = 2
@@ -119,7 +129,7 @@ disabled = true
 icon = ExtResource("12_l5")
 expand_icon = true
 
-[node name="Locked6" type="Button" parent="LevelSelectPanel/Card/VBox/Tiles"]
+[node name="Locked6" type="Button" parent="LevelSelectPanel/Layout/Card/VBox/Tiles"]
 modulate = Color(0.4, 0.4, 0.4, 1)
 custom_minimum_size = Vector2(40, 36)
 layout_mode = 2
@@ -127,15 +137,15 @@ disabled = true
 icon = ExtResource("13_l6")
 expand_icon = true
 
-[node name="BackButton" type="Button" parent="LevelSelectPanel/Card/VBox"]
+[node name="BackButton" type="Button" parent="LevelSelectPanel/Layout/Card/VBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Back"
 alignment = 1
 script = ExtResource("2_hover")
 
-[connection signal="pressed" from="MainPanel/Card/VBox/StartButton" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="MainPanel/Card/VBox/LevelSelectButton" to="." method="_on_level_select_pressed"]
-[connection signal="pressed" from="LevelSelectPanel/Card/VBox/Tiles/Level1" to="." method="_on_level_1_pressed"]
-[connection signal="pressed" from="LevelSelectPanel/Card/VBox/Tiles/Level2" to="." method="_on_level_2_pressed"]
-[connection signal="pressed" from="LevelSelectPanel/Card/VBox/BackButton" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="MainPanel/Layout/Card/VBox/StartButton" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MainPanel/Layout/Card/VBox/LevelSelectButton" to="." method="_on_level_select_pressed"]
+[connection signal="pressed" from="LevelSelectPanel/Layout/Card/VBox/Tiles/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="LevelSelectPanel/Layout/Card/VBox/Tiles/Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="LevelSelectPanel/Layout/Card/VBox/BackButton" to="." method="_on_back_pressed"]

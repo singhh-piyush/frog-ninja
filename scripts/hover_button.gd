@@ -3,7 +3,7 @@ extends Button
 # Reusable menu button: shows an icon on the left and text on the right (Button default),
 # the whole control is clickable, and it scales up slightly on hover/focus.
 
-@export var hover_scale := 1.12
+@export var hover_scale := 1.05
 
 func _ready():
 	_center_pivot()

@@ -8,7 +8,7 @@ var switching = false
 func _ready():
 	main_panel.visible = true
 	level_panel.visible = false
-	MenuAnim.open(self, main_panel.get_node("Card"))
+	MenuAnim.open(self, main_panel.get_node("Layout/Card"))
 
 func _on_start_pressed():
 	GameState.load_level(GameState.LEVELS[0])
@@ -26,7 +26,7 @@ func _swap(from_panel: Control, to_panel: Control):
 	await MenuAnim.close(from_panel).finished
 	from_panel.visible = false
 	to_panel.visible = true
-	MenuAnim.open(to_panel, to_panel.get_node("Card"))
+	MenuAnim.open(to_panel, to_panel.get_node("Layout/Card"))
 	switching = false
 
 func _on_level_1_pressed():
