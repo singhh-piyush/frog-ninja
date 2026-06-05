@@ -631,9 +631,13 @@ position = Vector2(-13, -25)
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(0, -10)
 zoom = Vector2(1, 1)
+limit_top = -290
 limit_bottom = 75
 limit_smoothed = true
 position_smoothing_enabled = true
+drag_vertical_enabled = true
+drag_top_margin = 0.4
+drag_bottom_margin = 0.4
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
