@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://balm416c41nqc" path="res://scenes/coin.tscn" id="11_cjkeq"]
 [ext_resource type="PackedScene" uid="uid://csigqg6bl6lsu" path="res://scenes/platform.tscn" id="12_mdrb3"]
 [ext_resource type="PackedScene" uid="uid://on7vabgoo4hk" path="res://scenes/end.tscn" id="13_v2xpi"]
+[ext_resource type="PackedScene" uid="uid://cpause0menu0001" path="res://scenes/PauseMenu.tscn" id="20_pause"]
 [ext_resource type="PackedScene" uid="uid://bolijqls3ry2n" path="res://scenes/enemy.tscn" id="14_jfag6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_js8my"]
@@ -550,7 +551,7 @@ position = Vector2(-13, -25)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(0, -10)
-zoom = Vector2(3, 3)
+zoom = Vector2(1, 1)
 limit_bottom = 75
 limit_smoothed = true
 position_smoothing_enabled = true
@@ -711,3 +712,5 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_oepkv")
 theme_override_font_sizes/font_size = 24
 text = "FROG NINJA "
+
+[node name="PauseMenu" parent="." instance=ExtResource("20_pause")]

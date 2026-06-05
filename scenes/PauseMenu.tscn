@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://bgy3eferle3ts"]
+
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_pm"]
+[ext_resource type="Script" path="res://scripts/hover_button.gd" id="2_hover"]
+[ext_resource type="FontFile" uid="uid://cgxwkt66bdw2" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="3_font"]
+[ext_resource type="Texture2D" uid="uid://f3bysys1u46e" path="res://assets/Free/Menu/Buttons/Settings.png" id="4_settings"]
+[ext_resource type="Texture2D" uid="uid://bmovf0i61tnyk" path="res://assets/Free/Menu/Buttons/Play.png" id="5_play"]
+[ext_resource type="Texture2D" uid="uid://b0nnouycskk3u" path="res://assets/Free/Menu/Buttons/Restart.png" id="6_restart"]
+[ext_resource type="Texture2D" uid="uid://bkkx5ainf3gpt" path="res://assets/Free/Menu/Buttons/Back.png" id="7_back"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_pm")
+
+[node name="MenuButton" type="Button" parent="."]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 26.0
+offset_bottom = 26.0
+flat = true
+icon = ExtResource("4_settings")
+expand_icon = true
+script = ExtResource("2_hover")
+
+[node name="Overlay" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Dim" type="ColorRect" parent="Overlay"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.7)
+
+[node name="Center" type="CenterContainer" parent="Overlay"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBox" type="VBoxContainer" parent="Overlay/Center"]
+custom_minimum_size = Vector2(150, 0)
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Title" type="Label" parent="Overlay/Center/VBox"]
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 28
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="Overlay/Center/VBox"]
+custom_minimum_size = Vector2(0, 26)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0.9, 0.4, 1)
+theme_override_constants/h_separation = 6
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 16
+text = "Resume"
+icon = ExtResource("5_play")
+flat = true
+alignment = 0
+script = ExtResource("2_hover")
+
+[node name="RestartButton" type="Button" parent="Overlay/Center/VBox"]
+custom_minimum_size = Vector2(0, 26)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0.9, 0.4, 1)
+theme_override_constants/h_separation = 6
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 16
+text = "Restart"
+icon = ExtResource("6_restart")
+flat = true
+alignment = 0
+script = ExtResource("2_hover")
+
+[node name="MenuButton" type="Button" parent="Overlay/Center/VBox"]
+custom_minimum_size = Vector2(0, 26)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0.9, 0.4, 1)
+theme_override_constants/h_separation = 6
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 16
+text = "Main Menu"
+icon = ExtResource("7_back")
+flat = true
+alignment = 0
+script = ExtResource("2_hover")
+
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="Overlay/Center/VBox/ResumeButton" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Overlay/Center/VBox/RestartButton" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Overlay/Center/VBox/MenuButton" to="." method="_on_main_menu_pressed"]

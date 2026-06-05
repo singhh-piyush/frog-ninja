@@ -7,3 +7,8 @@ export_presets.cfg
 .DS_Store
 Thumbs.db
 [Dd]esktop.ini
+
+# Claude Code (kept local, never committed)
+.claude/
+CLAUDE.md
+CLAUDE.local.md

@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -300.0
+const BOUNCE_VELOCITY = -220.0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -12,12 +13,17 @@ var can_double_jump = true
 var is_double_jumping = false
 
 var current_animation = ""
+var dead = false
+var frozen = false
 
 func _ready():
 	add_to_group("player")
 	print("Player is ready and added to group 'player'")
 
 func _physics_process(delta):
+	if dead or frozen:
+		return
+
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
@@ -40,7 +46,7 @@ func _physics_process(delta):
 		is_double_jumping = false
 
 	var direction = Input.get_axis("move_left", "move_right")
-	
+
 	if direction > 0:
 		animated_sprite_2d.flip_h = false
 	elif direction < 0:
@@ -58,7 +64,7 @@ func _physics_process(delta):
 			play_animation("jump")
 		else:
 			play_animation("fall")
-	
+
 	if direction:
 		velocity.x = direction * SPEED
 	else:
@@ -70,3 +76,28 @@ func play_animation(animation_name):
 	if current_animation != animation_name:
 		current_animation = animation_name
 		animated_sprite_2d.play(animation_name)
+
+# Called when the player stomps an enemy: pop back up.
+func bounce():
+	velocity.y = BOUNCE_VELOCITY
+
+# Called at the level trophy to stop the player without triggering a death.
+func freeze():
+	frozen = true
+	velocity = Vector2.ZERO
+	play_animation("idle")
+
+# Called by killzones (pits and enemies) when the player should die.
+func die():
+	if dead:
+		return
+	dead = true
+	velocity = Vector2.ZERO
+	play_animation("hit")
+	$Timer.start()
+
+# After the hit animation has played briefly, show the death/restart screen.
+func _on_timer_timeout():
+	var screen = preload("res://scenes/DeathScreen.tscn").instantiate()
+	get_tree().current_scene.add_child(screen)
+	get_tree().paused = true

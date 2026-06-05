@@ -4,6 +4,7 @@ const NORMAL_SPEED = 60
 const CHASE_SPEED = 120
 
 var direction = 1
+var dead = false
 
 @onready var ray_cast_left = $RayCastLeft
 @onready var ray_cast_right = $RayCastRight
@@ -11,7 +12,13 @@ var direction = 1
 @onready var ray_cast_player_right = $RayCastPlayerRight
 @onready var animated_sprite = $AnimatedSprite2D
 
+func _ready():
+	add_to_group("enemy")
+
 func _process(delta):
+	if dead:
+		return
+
 	if ray_cast_right.is_colliding():
 		direction = -1
 		animated_sprite.flip_h = false
@@ -37,3 +44,13 @@ func _process(delta):
 		animated_sprite.play("default")
 
 	position.x += direction * speed * delta
+
+# Called when the player stomps this enemy.
+func die():
+	if dead:
+		return
+	dead = true
+	animated_sprite.play("hit")
+	$killzone/CollisionShape2D.set_deferred("disabled", true)
+	await animated_sprite.animation_finished
+	queue_free()

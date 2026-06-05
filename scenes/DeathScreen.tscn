@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://c2vcxm00jjxtg"]
+
+[ext_resource type="Script" path="res://scripts/death_screen.gd" id="1_ds"]
+[ext_resource type="FontFile" uid="uid://cgxwkt66bdw2" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="2_font"]
+[ext_resource type="Script" path="res://scripts/hover_button.gd" id="3_hover"]
+[ext_resource type="Texture2D" uid="uid://b0nnouycskk3u" path="res://assets/Free/Menu/Buttons/Restart.png" id="4_restart"]
+[ext_resource type="Texture2D" uid="uid://bkkx5ainf3gpt" path="res://assets/Free/Menu/Buttons/Back.png" id="5_back"]
+
+[node name="DeathScreen" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_ds")
+
+[node name="Dim" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.7)
+
+[node name="Center" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBox" type="VBoxContainer" parent="Center"]
+custom_minimum_size = Vector2(150, 0)
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Title" type="Label" parent="Center/VBox"]
+theme_override_colors/font_color = Color(0.95, 0.25, 0.25, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 32
+text = "You Died!"
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="Center/VBox"]
+custom_minimum_size = Vector2(0, 26)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0.9, 0.4, 1)
+theme_override_constants/h_separation = 6
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 16
+text = "Restart"
+icon = ExtResource("4_restart")
+flat = true
+alignment = 0
+script = ExtResource("3_hover")
+
+[node name="MenuButton" type="Button" parent="Center/VBox"]
+custom_minimum_size = Vector2(0, 26)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0.9, 0.4, 1)
+theme_override_constants/h_separation = 6
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 16
+text = "Main Menu"
+icon = ExtResource("5_back")
+flat = true
+alignment = 0
+script = ExtResource("3_hover")
+
+[connection signal="pressed" from="Center/VBox/RestartButton" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Center/VBox/MenuButton" to="." method="_on_main_menu_pressed"]

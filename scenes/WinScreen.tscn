@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8xqy1wn3vk20"]
+
+[ext_resource type="Script" path="res://scripts/win_screen.gd" id="1_win"]
+[ext_resource type="FontFile" uid="uid://cgxwkt66bdw2" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="2_font"]
+[ext_resource type="Script" path="res://scripts/hover_button.gd" id="3_hover"]
+[ext_resource type="Texture2D" uid="uid://bmovf0i61tnyk" path="res://assets/Free/Menu/Buttons/Play.png" id="4_play"]
+
+[node name="WinScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_win")
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.07, 0.09, 0.15, 1)
+
+[node name="Center" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBox" type="VBoxContainer" parent="Center"]
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="Title" type="Label" parent="Center/VBox"]
+theme_override_colors/font_color = Color(1, 0.85, 0.2, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 24
+text = "You Completed the Game!"
+horizontal_alignment = 1
+
+[node name="MenuButton" type="Button" parent="Center/VBox"]
+custom_minimum_size = Vector2(0, 28)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0.9, 0.4, 1)
+theme_override_constants/h_separation = 6
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 16
+text = "Menu"
+icon = ExtResource("4_play")
+flat = true
+alignment = 0
+script = ExtResource("3_hover")
+
+[connection signal="pressed" from="Center/VBox/MenuButton" to="." method="_on_menu_pressed"]

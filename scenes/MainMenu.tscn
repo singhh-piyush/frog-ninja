@@ -1,0 +1,168 @@
+[gd_scene load_steps=14 format=3 uid="uid://c0mainmenu0001"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_mm"]
+[ext_resource type="Script" path="res://scripts/hover_button.gd" id="2_hover"]
+[ext_resource type="FontFile" uid="uid://cgxwkt66bdw2" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="3_font"]
+[ext_resource type="Texture2D" uid="uid://c063jjxu8uq2j" path="res://assets/Free/Background/Gray.png" id="4_bg"]
+[ext_resource type="Texture2D" uid="uid://bmovf0i61tnyk" path="res://assets/Free/Menu/Buttons/Play.png" id="5_play"]
+[ext_resource type="Texture2D" uid="uid://b7o1ojfaxhx43" path="res://assets/Free/Menu/Buttons/Levels.png" id="6_levels"]
+[ext_resource type="Texture2D" uid="uid://bkkx5ainf3gpt" path="res://assets/Free/Menu/Buttons/Back.png" id="7_back"]
+[ext_resource type="Texture2D" uid="uid://cmsadsesv7hur" path="res://assets/Free/Menu/Levels/01.png" id="8_l1"]
+[ext_resource type="Texture2D" uid="uid://b1rw8ixxgatr3" path="res://assets/Free/Menu/Levels/02.png" id="9_l2"]
+[ext_resource type="Texture2D" uid="uid://cpci72sm3d6w2" path="res://assets/Free/Menu/Levels/03.png" id="10_l3"]
+[ext_resource type="Texture2D" uid="uid://c6fqemmajs7as" path="res://assets/Free/Menu/Levels/04.png" id="11_l4"]
+[ext_resource type="Texture2D" uid="uid://cgr7r7pno4xlr" path="res://assets/Free/Menu/Levels/05.png" id="12_l5"]
+[ext_resource type="Texture2D" uid="uid://cx6h833sjvsg7" path="res://assets/Free/Menu/Levels/06.png" id="13_l6"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_mm")
+
+[node name="Background" type="TextureRect" parent="."]
+texture_repeat = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("4_bg")
+stretch_mode = 1
+
+[node name="TitleLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_top = 26.0
+offset_right = 160.0
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(0.45, 0.85, 0.4, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 36
+text = "FROG NINJA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainPanel" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 40.0
+
+[node name="VBox" type="VBoxContainer" parent="MainPanel"]
+custom_minimum_size = Vector2(140, 0)
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="StartButton" type="Button" parent="MainPanel/VBox"]
+custom_minimum_size = Vector2(0, 28)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0.9, 0.4, 1)
+theme_override_constants/h_separation = 8
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 16
+text = "Start Game"
+icon = ExtResource("5_play")
+flat = true
+alignment = 0
+script = ExtResource("2_hover")
+
+[node name="LevelSelectButton" type="Button" parent="MainPanel/VBox"]
+custom_minimum_size = Vector2(0, 28)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0.9, 0.4, 1)
+theme_override_constants/h_separation = 8
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 16
+text = "Level Select"
+icon = ExtResource("6_levels")
+flat = true
+alignment = 0
+script = ExtResource("2_hover")
+
+[node name="LevelSelectPanel" type="CenterContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 40.0
+
+[node name="VBox" type="VBoxContainer" parent="LevelSelectPanel"]
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="SelectTitle" type="Label" parent="LevelSelectPanel/VBox"]
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 18
+text = "SELECT LEVEL"
+horizontal_alignment = 1
+
+[node name="Tiles" type="HBoxContainer" parent="LevelSelectPanel/VBox"]
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Level1" type="Button" parent="LevelSelectPanel/VBox/Tiles"]
+custom_minimum_size = Vector2(32, 28)
+flat = true
+icon = ExtResource("8_l1")
+expand_icon = true
+script = ExtResource("2_hover")
+
+[node name="Level2" type="Button" parent="LevelSelectPanel/VBox/Tiles"]
+custom_minimum_size = Vector2(32, 28)
+flat = true
+icon = ExtResource("9_l2")
+expand_icon = true
+script = ExtResource("2_hover")
+
+[node name="Locked3" type="Button" parent="LevelSelectPanel/VBox/Tiles"]
+modulate = Color(0.4, 0.4, 0.4, 1)
+custom_minimum_size = Vector2(32, 28)
+disabled = true
+flat = true
+icon = ExtResource("10_l3")
+expand_icon = true
+
+[node name="Locked4" type="Button" parent="LevelSelectPanel/VBox/Tiles"]
+modulate = Color(0.4, 0.4, 0.4, 1)
+custom_minimum_size = Vector2(32, 28)
+disabled = true
+flat = true
+icon = ExtResource("11_l4")
+expand_icon = true
+
+[node name="Locked5" type="Button" parent="LevelSelectPanel/VBox/Tiles"]
+modulate = Color(0.4, 0.4, 0.4, 1)
+custom_minimum_size = Vector2(32, 28)
+disabled = true
+flat = true
+icon = ExtResource("12_l5")
+expand_icon = true
+
+[node name="Locked6" type="Button" parent="LevelSelectPanel/VBox/Tiles"]
+modulate = Color(0.4, 0.4, 0.4, 1)
+custom_minimum_size = Vector2(32, 28)
+disabled = true
+flat = true
+icon = ExtResource("13_l6")
+expand_icon = true
+
+[node name="BackButton" type="Button" parent="LevelSelectPanel/VBox"]
+custom_minimum_size = Vector2(0, 26)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0.9, 0.4, 1)
+theme_override_constants/h_separation = 8
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 16
+text = "Back"
+icon = ExtResource("7_back")
+flat = true
+alignment = 0
+script = ExtResource("2_hover")
+
+[connection signal="pressed" from="MainPanel/VBox/StartButton" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MainPanel/VBox/LevelSelectButton" to="." method="_on_level_select_pressed"]
+[connection signal="pressed" from="LevelSelectPanel/VBox/Tiles/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="LevelSelectPanel/VBox/Tiles/Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="LevelSelectPanel/VBox/BackButton" to="." method="_on_back_pressed"]

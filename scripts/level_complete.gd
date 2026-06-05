@@ -1,0 +1,9 @@
+extends CanvasLayer
+
+@onready var coins_label = %CoinsLabel
+
+func set_coins(n: int) -> void:
+	coins_label.text = "Coins collected: %d" % n
+
+func _on_next_pressed() -> void:
+	GameState.advance_from(get_tree().current_scene.scene_file_path)

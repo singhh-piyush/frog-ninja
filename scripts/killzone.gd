@@ -1,16 +1,16 @@
 extends Area2D
 
-@onready var timer = $Timer
-
 func _on_body_entered(body):
-	print("YOU DIED!")
-	#Engine.time_scale = 0.5
-	var player = body as Node2D  # Assuming the player node is directly entering the area
-	var animated_sprite = player.get_node("AnimatedSprite2D")
-	if animated_sprite:
-		animated_sprite.play("hit")
-	timer.start()
+	if not body.is_in_group("player"):
+		return
 
-func _on_timer_timeout():
-	Engine.time_scale = 1
-	get_tree().reload_current_scene()
+	# When this killzone belongs to an enemy, a downward hit from above is a stomp
+	# (the enemy dies and the player bounces). Any other contact kills the player.
+	var parent = get_parent()
+	if parent and parent.is_in_group("enemy") and parent.has_method("die"):
+		if body.velocity.y > 0 and body.global_position.y < parent.global_position.y:
+			parent.die()
+			body.bounce()
+			return
+
+	body.die()
