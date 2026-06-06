@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://pbit1otb7ywq"
+path="res://.godot/imported/RUDE - Eternal Youth.mp3-548fb5230c5683b4dbfe60ac787521d0.mp3str"
+
+[deps]
+
+source_file="res://assets/music/RUDE - Eternal Youth.mp3"
+dest_files=["res://.godot/imported/RUDE - Eternal Youth.mp3-548fb5230c5683b4dbfe60ac787521d0.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

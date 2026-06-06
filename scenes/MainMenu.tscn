@@ -56,7 +56,7 @@ layout_mode = 2
 theme_type_variation = &"WoodPanel"
 
 [node name="VBox" type="VBoxContainer" parent="MainPanel/Layout/Card" unique_id=728578355]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_constants/separation = 8
 alignment = 1
@@ -82,14 +82,34 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(0, 4)
 layout_mode = 2
 
-[node name="StartButton" type="Button" parent="MainPanel/Layout/Card/VBox" unique_id=226922066]
+[node name="ButtonGroup" type="VBoxContainer" parent="MainPanel/Layout/Card/VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 8
+
+[node name="StartButton" type="Button" parent="MainPanel/Layout/Card/VBox/ButtonGroup" unique_id=226922066]
 layout_mode = 2
 text = "Start Game"
 script = ExtResource("2_hover")
 
-[node name="LevelSelectButton" type="Button" parent="MainPanel/Layout/Card/VBox" unique_id=612987465]
+[node name="LevelSelectButton" type="Button" parent="MainPanel/Layout/Card/VBox/ButtonGroup" unique_id=612987465]
 layout_mode = 2
 text = "Level Select"
+script = ExtResource("2_hover")
+
+[node name="ControlsButton" type="Button" parent="MainPanel/Layout/Card/VBox/ButtonGroup"]
+layout_mode = 2
+text = "Controls"
+script = ExtResource("2_hover")
+
+[node name="SoundButton" type="Button" parent="MainPanel/Layout/Card/VBox/ButtonGroup"]
+layout_mode = 2
+text = "Sound"
+script = ExtResource("2_hover")
+
+[node name="ExitButton" type="Button" parent="MainPanel/Layout/Card/VBox/ButtonGroup"]
+layout_mode = 2
+text = "Exit"
 script = ExtResource("2_hover")
 
 [node name="LevelSelectPanel" type="CenterContainer" parent="." unique_id=1109420401]
@@ -107,12 +127,6 @@ layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="SelectTitle" type="Label" parent="LevelSelectPanel/Layout" unique_id=1253035949]
-layout_mode = 2
-theme_override_font_sizes/font_size = 16
-text = "SELECT LEVEL"
-horizontal_alignment = 1
-
 [node name="Card" type="PanelContainer" parent="LevelSelectPanel/Layout" unique_id=1123537747]
 layout_mode = 2
 theme_type_variation = &"WoodPanel"
@@ -121,6 +135,13 @@ theme_type_variation = &"WoodPanel"
 layout_mode = 2
 theme_override_constants/separation = 12
 alignment = 1
+
+[node name="SelectTitle" type="Label" parent="LevelSelectPanel/Layout/Card/VBox" unique_id=1253035949]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.9, 0.75, 1)
+theme_override_font_sizes/font_size = 16
+text = "SELECT LEVEL"
+horizontal_alignment = 1
 
 [node name="Tiles" type="HBoxContainer" parent="LevelSelectPanel/Layout/Card/VBox" unique_id=847483648]
 layout_mode = 2
@@ -179,8 +200,307 @@ size_flags_horizontal = 4
 text = "Back"
 script = ExtResource("2_hover")
 
-[connection signal="pressed" from="MainPanel/Layout/Card/VBox/StartButton" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="MainPanel/Layout/Card/VBox/LevelSelectButton" to="." method="_on_level_select_pressed"]
+[node name="ControlsPanel" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Layout" type="VBoxContainer" parent="ControlsPanel"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Card" type="PanelContainer" parent="ControlsPanel/Layout"]
+layout_mode = 2
+theme_type_variation = &"WoodPanel"
+
+[node name="VBox" type="VBoxContainer" parent="ControlsPanel/Layout/Card"]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="ControlsTitle" type="Label" parent="ControlsPanel/Layout/Card/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.9, 0.75, 1)
+theme_override_font_sizes/font_size = 16
+text = "CONTROLS"
+horizontal_alignment = 1
+
+[node name="Row1" type="HBoxContainer" parent="ControlsPanel/Layout/Card/VBox"]
+layout_mode = 2
+
+[node name="Key1" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row1"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.9, 0.75, 1)
+theme_override_fonts/font = ExtResource("11_bky6r")
+theme_override_font_sizes/font_size = 10
+text = "Space"
+horizontal_alignment = 2
+
+[node name="Sep1" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row1"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.55, 0.3, 1)
+theme_override_fonts/font = ExtResource("11_bky6r")
+theme_override_font_sizes/font_size = 10
+text = "-"
+horizontal_alignment = 1
+
+[node name="Action1" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row1"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.85, 0.79, 0.64, 1)
+theme_override_fonts/font = ExtResource("11_bky6r")
+theme_override_font_sizes/font_size = 10
+text = "Jump"
+
+[node name="Row2" type="HBoxContainer" parent="ControlsPanel/Layout/Card/VBox"]
+layout_mode = 2
+
+[node name="Key2" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.9, 0.75, 1)
+theme_override_fonts/font = ExtResource("11_bky6r")
+theme_override_font_sizes/font_size = 10
+text = "Space x2"
+horizontal_alignment = 2
+
+[node name="Sep2" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.55, 0.3, 1)
+theme_override_fonts/font = ExtResource("11_bky6r")
+theme_override_font_sizes/font_size = 10
+text = "-"
+horizontal_alignment = 1
+
+[node name="Action2" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.85, 0.79, 0.64, 1)
+theme_override_fonts/font = ExtResource("11_bky6r")
+theme_override_font_sizes/font_size = 10
+text = "Double Jump"
+
+[node name="Row3" type="HBoxContainer" parent="ControlsPanel/Layout/Card/VBox"]
+layout_mode = 2
+
+[node name="Key3" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row3"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.9, 0.75, 1)
+theme_override_fonts/font = ExtResource("11_bky6r")
+theme_override_font_sizes/font_size = 10
+text = "A / Left"
+horizontal_alignment = 2
+
+[node name="Sep3" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row3"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.55, 0.3, 1)
+theme_override_fonts/font = ExtResource("11_bky6r")
+theme_override_font_sizes/font_size = 10
+text = "-"
+horizontal_alignment = 1
+
+[node name="Action3" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.85, 0.79, 0.64, 1)
+theme_override_fonts/font = ExtResource("11_bky6r")
+theme_override_font_sizes/font_size = 10
+text = "Move Left"
+
+[node name="Row4" type="HBoxContainer" parent="ControlsPanel/Layout/Card/VBox"]
+layout_mode = 2
+
+[node name="Key4" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row4"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.9, 0.75, 1)
+theme_override_fonts/font = ExtResource("11_bky6r")
+theme_override_font_sizes/font_size = 10
+text = "D / Right"
+horizontal_alignment = 2
+
+[node name="Sep4" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row4"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.55, 0.3, 1)
+theme_override_fonts/font = ExtResource("11_bky6r")
+theme_override_font_sizes/font_size = 10
+text = "-"
+horizontal_alignment = 1
+
+[node name="Action4" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.85, 0.79, 0.64, 1)
+theme_override_fonts/font = ExtResource("11_bky6r")
+theme_override_font_sizes/font_size = 10
+text = "Move Right"
+
+[node name="Row5" type="HBoxContainer" parent="ControlsPanel/Layout/Card/VBox"]
+layout_mode = 2
+
+[node name="Key5" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row5"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.9, 0.75, 1)
+theme_override_fonts/font = ExtResource("11_bky6r")
+theme_override_font_sizes/font_size = 10
+text = "Esc"
+horizontal_alignment = 2
+
+[node name="Sep5" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row5"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.55, 0.3, 1)
+theme_override_fonts/font = ExtResource("11_bky6r")
+theme_override_font_sizes/font_size = 10
+text = "-"
+horizontal_alignment = 1
+
+[node name="Action5" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row5"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.85, 0.79, 0.64, 1)
+theme_override_fonts/font = ExtResource("11_bky6r")
+theme_override_font_sizes/font_size = 10
+text = "Pause / Resume"
+
+[node name="Spacer" type="Control" parent="ControlsPanel/Layout/Card/VBox"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+
+[node name="ControlsBackButton" type="Button" parent="ControlsPanel/Layout/Card/VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back"
+script = ExtResource("2_hover")
+
+[node name="SoundPanel" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Layout" type="VBoxContainer" parent="SoundPanel"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Card" type="PanelContainer" parent="SoundPanel/Layout"]
+layout_mode = 2
+theme_type_variation = &"WoodPanel"
+
+[node name="VBox" type="VBoxContainer" parent="SoundPanel/Layout/Card"]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="SoundTitle" type="Label" parent="SoundPanel/Layout/Card/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.9, 0.75, 1)
+theme_override_font_sizes/font_size = 16
+text = "SOUND"
+horizontal_alignment = 1
+
+[node name="MasterRow" type="HBoxContainer" parent="SoundPanel/Layout/Card/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="MasterLabel" type="Label" parent="SoundPanel/Layout/Card/VBox/MasterRow"]
+custom_minimum_size = Vector2(52, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.9, 0.75, 1)
+theme_override_fonts/font = ExtResource("11_bky6r")
+theme_override_font_sizes/font_size = 10
+text = "Master"
+horizontal_alignment = 2
+
+[node name="MasterSlider" type="HSlider" parent="SoundPanel/Layout/Card/VBox/MasterRow"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="SFXRow" type="HBoxContainer" parent="SoundPanel/Layout/Card/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SFXLabel" type="Label" parent="SoundPanel/Layout/Card/VBox/SFXRow"]
+custom_minimum_size = Vector2(52, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.9, 0.75, 1)
+theme_override_fonts/font = ExtResource("11_bky6r")
+theme_override_font_sizes/font_size = 10
+text = "SFX"
+horizontal_alignment = 2
+
+[node name="SFXSlider" type="HSlider" parent="SoundPanel/Layout/Card/VBox/SFXRow"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="MusicRow" type="HBoxContainer" parent="SoundPanel/Layout/Card/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="MusicLabel" type="Label" parent="SoundPanel/Layout/Card/VBox/MusicRow"]
+custom_minimum_size = Vector2(52, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.9, 0.75, 1)
+theme_override_fonts/font = ExtResource("11_bky6r")
+theme_override_font_sizes/font_size = 10
+text = "Music"
+horizontal_alignment = 2
+
+[node name="MusicSlider" type="HSlider" parent="SoundPanel/Layout/Card/VBox/MusicRow"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="Spacer" type="Control" parent="SoundPanel/Layout/Card/VBox"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+
+[node name="SoundBackButton" type="Button" parent="SoundPanel/Layout/Card/VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back"
+script = ExtResource("2_hover")
+
+[connection signal="pressed" from="MainPanel/Layout/Card/VBox/ButtonGroup/StartButton" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MainPanel/Layout/Card/VBox/ButtonGroup/LevelSelectButton" to="." method="_on_level_select_pressed"]
+[connection signal="pressed" from="MainPanel/Layout/Card/VBox/ButtonGroup/ControlsButton" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="MainPanel/Layout/Card/VBox/ButtonGroup/SoundButton" to="." method="_on_sound_pressed"]
+[connection signal="pressed" from="MainPanel/Layout/Card/VBox/ButtonGroup/ExitButton" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="LevelSelectPanel/Layout/Card/VBox/Tiles/Level1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="LevelSelectPanel/Layout/Card/VBox/Tiles/Level2" to="." method="_on_level_2_pressed"]
 [connection signal="pressed" from="LevelSelectPanel/Layout/Card/VBox/BackButton" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="ControlsPanel/Layout/Card/VBox/ControlsBackButton" to="." method="_on_controls_back_pressed"]
+[connection signal="value_changed" from="SoundPanel/Layout/Card/VBox/MasterRow/MasterSlider" to="." method="_on_master_slider_changed"]
+[connection signal="value_changed" from="SoundPanel/Layout/Card/VBox/SFXRow/SFXSlider" to="." method="_on_sfx_slider_changed"]
+[connection signal="value_changed" from="SoundPanel/Layout/Card/VBox/MusicRow/MusicSlider" to="." method="_on_music_slider_changed"]
+[connection signal="pressed" from="SoundPanel/Layout/Card/VBox/SoundBackButton" to="." method="_on_sound_back_pressed"]
