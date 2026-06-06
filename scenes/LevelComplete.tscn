@@ -32,57 +32,56 @@ anchor_bottom = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Layout" type="VBoxContainer" parent="Root/Center"]
+[node name="Card" type="PanelContainer" parent="Root/Center"]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_type_variation = &"WoodPanel"
+
+[node name="Layout" type="VBoxContainer" parent="Root/Center/Card"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+theme_override_constants/separation = 12
 alignment = 1
 
-[node name="Title" type="Label" parent="Root/Center/Layout"]
+[node name="Title" type="Label" parent="Root/Center/Card/Layout"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.9, 0.75, 1)
 theme_override_font_sizes/font_size = 18
 text = "Level Complete!"
 horizontal_alignment = 1
 size_flags_horizontal = 4
 
-[node name="Stars" type="HBoxContainer" parent="Root/Center/Layout"]
+[node name="Stars" type="HBoxContainer" parent="Root/Center/Card/Layout"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 6
 alignment = 1
 
-[node name="Star1" type="TextureRect" parent="Root/Center/Layout/Stars"]
+[node name="Star1" type="TextureRect" parent="Root/Center/Card/Layout/Stars"]
 texture_filter = 1
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Star2" type="TextureRect" parent="Root/Center/Layout/Stars"]
+[node name="Star2" type="TextureRect" parent="Root/Center/Card/Layout/Stars"]
 texture_filter = 1
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Star3" type="TextureRect" parent="Root/Center/Layout/Stars"]
+[node name="Star3" type="TextureRect" parent="Root/Center/Card/Layout/Stars"]
 texture_filter = 1
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Card" type="PanelContainer" parent="Root/Center/Layout"]
-layout_mode = 2
-
-[node name="VBox" type="VBoxContainer" parent="Root/Center/Layout/Card"]
-layout_mode = 2
-alignment = 1
-
-[node name="NextButton" type="Button" parent="Root/Center/Layout/Card/VBox"]
+[node name="NextButton" type="Button" parent="Root/Center/Card/Layout"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Next Level"
 alignment = 1
 script = ExtResource("2_hover")
 
-[connection signal="pressed" from="Root/Center/Layout/Card/VBox/NextButton" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Root/Center/Card/Layout/NextButton" to="." method="_on_next_pressed"]

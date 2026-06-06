@@ -10,7 +10,7 @@ var animating = false
 
 @onready var overlay: Control = $Overlay
 @onready var dim: ColorRect = $Overlay/Dim
-@onready var card: Control = $Overlay/Center/Layout
+@onready var card: Control = $Overlay/Center/Card
 
 func _ready():
 	overlay.visible = false

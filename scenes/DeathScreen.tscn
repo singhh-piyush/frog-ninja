@@ -32,38 +32,35 @@ anchor_bottom = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Layout" type="VBoxContainer" parent="Root/Center"]
+[node name="Card" type="PanelContainer" parent="Root/Center"]
+layout_mode = 2
+theme_type_variation = &"WoodPanel"
+
+[node name="Layout" type="VBoxContainer" parent="Root/Center/Card"]
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="Title" type="Label" parent="Root/Center/Layout"]
+[node name="Title" type="Label" parent="Root/Center/Card/Layout"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.9, 0.75, 1)
 theme_override_font_sizes/font_size = 24
 text = "You Died!"
 horizontal_alignment = 1
 size_flags_horizontal = 4
 
-[node name="Card" type="PanelContainer" parent="Root/Center/Layout"]
-layout_mode = 2
-
-[node name="VBox" type="VBoxContainer" parent="Root/Center/Layout/Card"]
-layout_mode = 2
-custom_minimum_size = Vector2(150, 0)
-theme_override_constants/separation = 8
-alignment = 1
-
-[node name="RestartButton" type="Button" parent="Root/Center/Layout/Card/VBox"]
+[node name="RestartButton" type="Button" parent="Root/Center/Card/Layout"]
 layout_mode = 2
 text = "Restart"
 alignment = 1
 script = ExtResource("2_hover")
 
-[node name="MenuButton" type="Button" parent="Root/Center/Layout/Card/VBox"]
+[node name="MenuButton" type="Button" parent="Root/Center/Card/Layout"]
 layout_mode = 2
 text = "Main Menu"
 alignment = 1
 script = ExtResource("2_hover")
 
-[connection signal="pressed" from="Root/Center/Layout/Card/VBox/RestartButton" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="Root/Center/Layout/Card/VBox/MenuButton" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Root/Center/Card/Layout/RestartButton" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Root/Center/Card/Layout/MenuButton" to="." method="_on_main_menu_pressed"]

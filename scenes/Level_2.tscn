@@ -533,53 +533,53 @@ _data = {
 
 [node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.05, 0)
-motion_mirroring = Vector2(608, 0)
+motion_mirroring = Vector2(684, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
 texture_filter = 1
 texture = ExtResource("40_sky")
 centered = false
-scale = Vector2(0.32, 0.32)
+scale = Vector2(0.36, 0.36)
 
 [node name="Moon" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.1, 0)
-motion_mirroring = Vector2(608, 0)
+motion_mirroring = Vector2(684, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Moon"]
 texture_filter = 1
 texture = ExtResource("41_moon")
 centered = false
-scale = Vector2(0.16, 0.16)
+scale = Vector2(0.18, 0.18)
 
 [node name="Mountain" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.2, 0)
-motion_mirroring = Vector2(608, 0)
+motion_mirroring = Vector2(684, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Mountain"]
 texture_filter = 1
 texture = ExtResource("42_mtn")
 centered = false
-scale = Vector2(0.16, 0.16)
+scale = Vector2(0.18, 0.18)
 
 [node name="Back" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.35, 0)
-motion_mirroring = Vector2(608, 0)
+motion_mirroring = Vector2(684, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Back"]
 texture_filter = 1
 texture = ExtResource("43_back")
 centered = false
-scale = Vector2(0.16, 0.16)
+scale = Vector2(0.18, 0.18)
 
 [node name="Mid" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.5, 0)
-motion_mirroring = Vector2(608, 0)
+motion_mirroring = Vector2(684, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Mid"]
 texture_filter = 1
 texture = ExtResource("44_mid")
 centered = false
-scale = Vector2(0.16, 0.16)
+scale = Vector2(0.18, 0.18)
 
 [node name="Long" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.7, 0)
@@ -593,13 +593,13 @@ scale = Vector2(0.32, 0.32)
 
 [node name="Short" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.85, 0)
-motion_mirroring = Vector2(608, 0)
+motion_mirroring = Vector2(684, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Short"]
 texture_filter = 1
 texture = ExtResource("46_short")
 centered = false
-scale = Vector2(0.16, 0.16)
+scale = Vector2(0.18, 0.18)
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
@@ -631,13 +631,13 @@ position = Vector2(-13, -25)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(0, -10)
-zoom = Vector2(1, 1)
+zoom = Vector2(1.15, 1.15)
 limit_top = -290
 limit_bottom = 75
 limit_smoothed = true
 position_smoothing_enabled = true
 drag_vertical_enabled = true
-drag_top_margin = 0.4
+drag_top_margin = 0.65
 drag_bottom_margin = 0.4
 
 [node name="TileMap" type="TileMap" parent="."]

@@ -560,7 +560,6 @@ _data = {
 position = Vector2(3, 0)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1083240410]
-visible = false
 
 [node name="Sky" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1768147625]
 motion_scale = Vector2(0.1, 0)
@@ -653,12 +652,13 @@ position = Vector2(-13, -25)
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=707231683]
 position = Vector2(0, -10)
+zoom = Vector2(1.15, 1.15)
 limit_top = -360
 limit_bottom = 75
 limit_smoothed = true
 position_smoothing_enabled = true
 drag_vertical_enabled = true
-drag_top_margin = 0.4
+drag_top_margin = 0.65
 drag_bottom_margin = 0.4
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1345288417]
@@ -766,7 +766,6 @@ libraries/ = SubResource("AnimationLibrary_hl3go")
 autoplay = &"move"
 
 [node name="PauseMenu" parent="." unique_id=1090227111 instance=ExtResource("20_pause")]
-visible = false
 
 [node name="end2" parent="." unique_id=1791219872 instance=ExtResource("14_l6opc")]
 position = Vector2(2162, -138)
@@ -792,4 +791,4 @@ position = Vector2(1823, -51)
 [node name="coin7" parent="." unique_id=988645056 instance=ExtResource("11_8ityc")]
 position = Vector2(1991, -54)
 
-[node name="HUD" parent="." instance=ExtResource("21_hud")]
+[node name="HUD" parent="." unique_id=361547275 instance=ExtResource("21_hud")]

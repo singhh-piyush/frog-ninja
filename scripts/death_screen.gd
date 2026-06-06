@@ -4,7 +4,7 @@ extends CanvasLayer
 # in from screen centre (no click origin at death) instead of swapping to a separate screen.
 
 @onready var dim: ColorRect = $Root/Dim
-@onready var card: Control = $Root/Center/Layout
+@onready var card: Control = $Root/Center/Card
 
 func _ready() -> void:
 	PopupWipe.reveal(dim, card)

@@ -1,8 +1,8 @@
 extends CanvasLayer
 
-@onready var stars: HBoxContainer = $Root/Center/Layout/Stars
+@onready var stars: HBoxContainer = $Root/Center/Card/Layout/Stars
 @onready var dim: ColorRect = $Root/Dim
-@onready var card: Control = $Root/Center/Layout
+@onready var card: Control = $Root/Center/Card
 
 func _ready() -> void:
 	# This level's coins (recorded into GameState by end.gd just before this popup spawns).

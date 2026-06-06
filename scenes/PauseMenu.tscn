@@ -33,39 +33,36 @@ anchor_bottom = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Layout" type="VBoxContainer" parent="Overlay/Center"]
+[node name="Card" type="PanelContainer" parent="Overlay/Center"]
+layout_mode = 2
+theme_type_variation = &"WoodPanel"
+
+[node name="Layout" type="VBoxContainer" parent="Overlay/Center/Card"]
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="Title" type="Label" parent="Overlay/Center/Layout"]
+[node name="Title" type="Label" parent="Overlay/Center/Card/Layout"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.9, 0.75, 1)
 theme_override_font_sizes/font_size = 20
 text = "Paused"
 horizontal_alignment = 1
 
-[node name="Card" type="PanelContainer" parent="Overlay/Center/Layout"]
-layout_mode = 2
-
-[node name="VBox" type="VBoxContainer" parent="Overlay/Center/Layout/Card"]
-layout_mode = 2
-custom_minimum_size = Vector2(150, 0)
-theme_override_constants/separation = 8
-alignment = 1
-
-[node name="ResumeButton" type="Button" parent="Overlay/Center/Layout/Card/VBox"]
+[node name="ResumeButton" type="Button" parent="Overlay/Center/Card/Layout"]
 layout_mode = 2
 text = "Resume"
 alignment = 1
 script = ExtResource("2_hover")
 
-[node name="RestartButton" type="Button" parent="Overlay/Center/Layout/Card/VBox"]
+[node name="RestartButton" type="Button" parent="Overlay/Center/Card/Layout"]
 layout_mode = 2
 text = "Restart"
 alignment = 1
 script = ExtResource("2_hover")
 
-[node name="MenuButton" type="Button" parent="Overlay/Center/Layout/Card/VBox"]
+[node name="MenuButton" type="Button" parent="Overlay/Center/Card/Layout"]
 layout_mode = 2
 text = "Main Menu"
 alignment = 1
@@ -82,7 +79,7 @@ icon = ExtResource("4_settings")
 expand_icon = true
 script = ExtResource("2_hover")
 
-[connection signal="pressed" from="Overlay/Center/Layout/Card/VBox/ResumeButton" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="Overlay/Center/Layout/Card/VBox/RestartButton" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="Overlay/Center/Layout/Card/VBox/MenuButton" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Overlay/Center/Card/Layout/ResumeButton" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Overlay/Center/Card/Layout/RestartButton" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Overlay/Center/Card/Layout/MenuButton" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

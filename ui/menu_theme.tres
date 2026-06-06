@@ -98,6 +98,24 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
+[sub_resource type="StyleBoxFlat" id="popup_panel"]
+content_margin_left = 22.0
+content_margin_top = 16.0
+content_margin_right = 22.0
+content_margin_bottom = 18.0
+bg_color = Color(0.16, 0.1, 0.06, 0.94)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.46, 0.29, 0.15, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 0.45)
+shadow_size = 5
+
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)
 Button/colors/font_disabled_color = Color(0.3, 0.3, 0.3, 1)
@@ -115,3 +133,5 @@ Label/colors/font_color = Color(0, 0, 0, 1)
 Label/font_sizes/font_size = 13
 Label/fonts/font = ExtResource("1_font")
 PanelContainer/styles/panel = SubResource("card_panel")
+WoodPanel/base_type = &"PanelContainer"
+WoodPanel/styles/panel = SubResource("popup_panel")
