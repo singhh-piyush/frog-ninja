@@ -76,7 +76,7 @@ alignment = 1
 [node name="NextButton" type="Button" parent="Root/Center/Layout/Card/VBox"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Next"
+text = "Next Level"
 alignment = 1
 script = ExtResource("2_hover")
 

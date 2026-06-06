@@ -36,10 +36,13 @@ func restart(from := Vector2(-1, -1)) -> void:
 func respawn(from := Vector2(-1, -1)) -> void:
 	Transition.reload_scene(from)
 
+func is_last_level(path: String) -> bool:
+	var idx := LEVELS.find(path)
+	return idx == -1 or idx + 1 >= LEVELS.size()
+
 func advance_from(current_path: String, from := Vector2(-1, -1)) -> void:
-	var idx := LEVELS.find(current_path)
-	if idx == -1 or idx + 1 >= LEVELS.size():
+	if is_last_level(current_path):
 		Transition.change_scene(WIN_SCREEN, from)
 	else:
 		lives = MAX_LIVES
-		Transition.change_scene(LEVELS[idx + 1], from)
+		Transition.change_scene(LEVELS[LEVELS.find(current_path) + 1], from)
