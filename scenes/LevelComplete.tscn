@@ -39,6 +39,33 @@ text = "Level Complete!"
 horizontal_alignment = 1
 size_flags_horizontal = 4
 
+[node name="Stars" type="HBoxContainer" parent="Root/Center/Layout"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Star1" type="TextureRect" parent="Root/Center/Layout/Stars"]
+texture_filter = 1
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Star2" type="TextureRect" parent="Root/Center/Layout/Stars"]
+texture_filter = 1
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Star3" type="TextureRect" parent="Root/Center/Layout/Stars"]
+texture_filter = 1
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Card" type="PanelContainer" parent="Root/Center/Layout"]
 layout_mode = 2
 
