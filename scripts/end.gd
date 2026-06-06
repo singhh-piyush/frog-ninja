@@ -19,15 +19,15 @@ func _on_body_entered(body):
 	GameState.last_coins_collected = gm.score if gm else 0
 	GameState.last_coins_total = gm.total_coins if gm else 0
 
-	# Final level: skip the Level Complete popup and go straight to the win screen.
-	# Otherwise iris to black and show the popup over the paused level.
+	# Final level: skip the Level Complete popup and show the win screen.
+	# Either way the popup hovers over the paused level and wipes itself in (no black cover).
 	var path = get_tree().current_scene.scene_file_path
 	if GameState.is_last_level(path):
-		GameState.advance_from(path)
+		_show_overlay("res://scenes/WinScreen.tscn")
 	else:
-		Transition.wipe(_show_level_complete)
+		_show_overlay("res://scenes/LevelComplete.tscn")
 
-func _show_level_complete():
-	var popup = preload("res://scenes/LevelComplete.tscn").instantiate()
+func _show_overlay(scene_path: String):
+	var popup = load(scene_path).instantiate()
 	get_tree().current_scene.add_child(popup)
 	get_tree().paused = true

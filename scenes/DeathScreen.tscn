@@ -3,8 +3,16 @@
 [ext_resource type="Script" path="res://scripts/death_screen.gd" id="1_ds"]
 [ext_resource type="Script" path="res://scripts/hover_button.gd" id="2_hover"]
 [ext_resource type="Theme" path="res://ui/menu_theme.tres" id="3_theme"]
-[ext_resource type="Texture2D" uid="uid://ce0lft4a7ca8j" path="res://assets/menu_bg/frame_00.png" id="4_bg"]
-[ext_resource type="Script" uid="uid://b027q26qwwa31" path="res://scripts/animated_bg.gd" id="5_abg"]
+[ext_resource type="Shader" path="res://shaders/popup_dim.gdshader" id="4_sh"]
+
+[sub_resource type="ShaderMaterial" id="mat_dim"]
+shader = ExtResource("4_sh")
+shader_parameter/radius = 0.0
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/invert = 0.0
+shader_parameter/aspect = 1.777
+shader_parameter/tint = Color(0, 0, 0, 0.3)
+shader_parameter/blur = 3.5
 
 [node name="DeathScreen" type="CanvasLayer"]
 process_mode = 3
@@ -15,13 +23,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource("3_theme")
 
-[node name="Bg" type="TextureRect" parent="Root"]
-texture_filter = 1
+[node name="Dim" type="ColorRect" parent="Root"]
+material = SubResource("mat_dim")
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource("4_bg")
-stretch_mode = 6
-script = ExtResource("5_abg")
 
 [node name="Center" type="CenterContainer" parent="Root"]
 anchor_right = 1.0

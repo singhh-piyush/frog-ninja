@@ -1,12 +1,16 @@
 extends CanvasLayer
 
-# Self-contained pause UI: a top-left toggle button plus an overlay with
-# Resume / Restart / Main Menu. Instanced once into each level.
+# Self-contained pause UI: a top-left gear toggle plus a popup with Resume / Restart / Main Menu.
+# Instanced once into each level. The popup hovers over the dimmed, frozen game and wipes in from
+# the gear/click point (PopupWipe) — no full-screen black cover. The gear stays drawn on top of the
+# dim (it's the last child of this CanvasLayer) so clicking it again closes the menu.
 
 var paused_by_me = false
 var animating = false
 
-@onready var overlay = $Overlay
+@onready var overlay: Control = $Overlay
+@onready var dim: ColorRect = $Overlay/Dim
+@onready var card: Control = $Overlay/Center/Layout
 
 func _ready():
 	overlay.visible = false
@@ -27,23 +31,22 @@ func _toggle():
 
 func _open():
 	animating = true
-	await Transition.wipe(_do_open, get_viewport().get_mouse_position())
-	animating = false
-
-func _do_open():
 	paused_by_me = true
 	get_tree().paused = true
 	overlay.visible = true
+	await PopupWipe.reveal(dim, card, get_viewport().get_mouse_position())
+	animating = false
 
 func _close():
 	animating = true
-	await Transition.wipe(_do_close, get_viewport().get_mouse_position())
-	animating = false
-
-func _do_close():
+	await PopupWipe.conceal(dim, card, get_viewport().get_mouse_position()).finished
 	overlay.visible = false
 	get_tree().paused = false
 	paused_by_me = false
+	animating = false
+	# Drop focus so the now-hidden buttons don't swallow the next Space/Enter (which is also
+	# `jump`/`ui_accept`) and re-trigger the gear, reopening the menu.
+	get_viewport().gui_release_focus()
 
 func _on_menu_button_pressed():
 	$MenuButton.bounce()

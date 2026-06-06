@@ -110,8 +110,9 @@ func _on_timer_timeout():
 	if GameState.lives > 0:
 		GameState.respawn()
 	else:
-		Transition.wipe(_show_death_screen)
+		_show_death_screen()
 
+# Spawn the death overlay over the frozen level; it wipes itself in (no black scene-change cover).
 func _show_death_screen():
 	var screen = preload("res://scenes/DeathScreen.tscn").instantiate()
 	get_tree().current_scene.add_child(screen)

@@ -35,6 +35,8 @@ grow_vertical = 2
 texture = ExtResource("4_bg")
 stretch_mode = 6
 script = ExtResource("14_abg")
+frame_dir = "res://assets/ninja_bg/"
+fps = 12.0
 
 [node name="MainPanel" type="CenterContainer" parent="." unique_id=995480174]
 layout_mode = 1
