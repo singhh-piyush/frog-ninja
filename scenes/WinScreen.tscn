@@ -1,56 +1,91 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8xqy1wn3vk20"]
+[gd_scene format=3 uid="uid://b8xqy1wn3vk20"]
 
-[ext_resource type="Script" path="res://scripts/win_screen.gd" id="1_win"]
-[ext_resource type="Script" path="res://scripts/hover_button.gd" id="2_hover"]
-[ext_resource type="Theme" path="res://ui/menu_theme.tres" id="3_theme"]
+[ext_resource type="Script" uid="uid://cpo8j3ola62jw" path="res://scripts/win_screen.gd" id="1_win"]
+[ext_resource type="Script" uid="uid://c00aio8sdccl7" path="res://scripts/hover_button.gd" id="2_hover"]
+[ext_resource type="Theme" uid="uid://c2ukhtvp2v2cg" path="res://ui/menu_theme.tres" id="3_theme"]
 [ext_resource type="Texture2D" uid="uid://ce0lft4a7ca8j" path="res://assets/menu_bg/frame_00.png" id="4_bg"]
 [ext_resource type="Script" uid="uid://b027q26qwwa31" path="res://scripts/animated_bg.gd" id="5_abg"]
 
-[node name="WinScreen" type="Control"]
+[node name="WinScreen" type="Control" unique_id=1811853839]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("3_theme")
 script = ExtResource("1_win")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=1133529711]
 texture_filter = 1
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource("4_bg")
 stretch_mode = 6
 script = ExtResource("5_abg")
 
-[node name="Center" type="CenterContainer" parent="."]
+[node name="Center" type="CenterContainer" parent="." unique_id=329756162]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Layout" type="VBoxContainer" parent="Center"]
+[node name="Layout" type="VBoxContainer" parent="Center" unique_id=301218116]
 layout_mode = 2
 theme_override_constants/separation = 14
 alignment = 1
 
-[node name="Title" type="Label" parent="Center/Layout"]
+[node name="Title" type="Label" parent="Center/Layout" unique_id=231738046]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 18
 text = "You Completed the Game!"
 horizontal_alignment = 1
-size_flags_horizontal = 4
 
-[node name="Card" type="PanelContainer" parent="Center/Layout"]
+[node name="Stars" type="HBoxContainer" parent="Center/Layout"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Star1" type="TextureRect" parent="Center/Layout/Stars"]
+texture_filter = 1
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Star2" type="TextureRect" parent="Center/Layout/Stars"]
+texture_filter = 1
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Star3" type="TextureRect" parent="Center/Layout/Stars"]
+texture_filter = 1
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Card" type="PanelContainer" parent="Center/Layout" unique_id=1786357285]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="VBox" type="VBoxContainer" parent="Center/Layout/Card"]
+[node name="VBox" type="VBoxContainer" parent="Center/Layout/Card" unique_id=1929610487]
 layout_mode = 2
 alignment = 1
 
-[node name="MenuButton" type="Button" parent="Center/Layout/Card/VBox"]
+[node name="MenuButton" type="Button" parent="Center/Layout/Card/VBox" unique_id=2136445161]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Menu"
-alignment = 1
 script = ExtResource("2_hover")
 
 [connection signal="pressed" from="Center/Layout/Card/VBox/MenuButton" to="." method="_on_menu_pressed"]

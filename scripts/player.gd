@@ -87,18 +87,30 @@ func freeze():
 	velocity = Vector2.ZERO
 	play_animation("idle")
 
-# Called by killzones (pits and enemies) when the player should die.
+# Called by killzones (pits and enemies) when the player takes a fatal hit. Costs one life; the
+# death screen only appears once all lives are gone (handled in _on_timer_timeout).
 func die():
 	if dead:
 		return
 	dead = true
 	velocity = Vector2.ZERO
+	GameState.lives -= 1
 	play_animation("hit")
+	_flash_damage()
 	$Timer.start()
 
-# After the hit animation has played briefly, show the death/restart screen behind a circle wipe.
+# Quick red flash for clear "took damage" feedback.
+func _flash_damage():
+	animated_sprite_2d.modulate = Color(1, 0.3, 0.3)
+	var t = create_tween()
+	t.tween_property(animated_sprite_2d, "modulate", Color(1, 1, 1), 0.3)
+
+# After the hit animation has played briefly, either respawn (lives left) or show the death screen.
 func _on_timer_timeout():
-	Transition.wipe(_show_death_screen)
+	if GameState.lives > 0:
+		GameState.respawn()
+	else:
+		Transition.wipe(_show_death_screen)
 
 func _show_death_screen():
 	var screen = preload("res://scenes/DeathScreen.tscn").instantiate()

@@ -3,6 +3,9 @@ extends Area2D
 @onready var game_manager = %GameManager
 @onready var animation_player = $AnimationPlayer
 
+func _ready():
+	game_manager.register_coin()
+
 func _on_body_entered(_body):
 	game_manager.add_point()
 	animation_player.play("pick_up")

@@ -18,10 +18,11 @@ func _on_body_entered(body):
 	Transition.wipe(_show_level_complete)
 
 func _show_level_complete():
+	# Record this level's coin result so the WinScreen can rate the final level with stars.
 	var gm = get_tree().get_first_node_in_group("game_manager")
-	var coins = gm.score if gm else 0
+	GameState.last_coins_collected = gm.score if gm else 0
+	GameState.last_coins_total = gm.total_coins if gm else 0
 
 	var popup = preload("res://scenes/LevelComplete.tscn").instantiate()
 	get_tree().current_scene.add_child(popup)
-	popup.set_coins(coins)
 	get_tree().paused = true

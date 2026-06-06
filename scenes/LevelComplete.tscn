@@ -39,14 +39,6 @@ text = "Level Complete!"
 horizontal_alignment = 1
 size_flags_horizontal = 4
 
-[node name="CoinsLabel" type="Label" parent="Root/Center/Layout"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 13
-text = "Coins collected: 0"
-horizontal_alignment = 1
-size_flags_horizontal = 4
-
 [node name="Card" type="PanelContainer" parent="Root/Center/Layout"]
 layout_mode = 2
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://4f1nrerp01xi"]
+[gd_scene load_steps=37 format=3 uid="uid://4f1nrerp01xi"]
 
 [ext_resource type="Script" uid="uid://dwcmjv7pvk1w4" path="res://scripts/game_manager.gd" id="1_4phtn"]
 [ext_resource type="FontFile" uid="uid://cgxwkt66bdw2" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="2_oepkv"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://csigqg6bl6lsu" path="res://scenes/platform.tscn" id="12_mdrb3"]
 [ext_resource type="PackedScene" uid="uid://on7vabgoo4hk" path="res://scenes/end.tscn" id="13_v2xpi"]
 [ext_resource type="PackedScene" uid="uid://cpause0menu0001" path="res://scenes/PauseMenu.tscn" id="20_pause"]
+[ext_resource type="PackedScene" uid="uid://b8hudfrog0lay" path="res://scenes/HUD.tscn" id="21_hud"]
 [ext_resource type="PackedScene" uid="uid://bolijqls3ry2n" path="res://scenes/enemy.tscn" id="14_jfag6"]
 [ext_resource type="Texture2D" uid="uid://dkqrerwtcw4cm" path="res://assets/parallax/forest/forest_sky.png" id="40_sky"]
 [ext_resource type="Texture2D" uid="uid://wmah6inkf3nq" path="res://assets/parallax/forest/forest_moon.png" id="41_moon"]
@@ -798,3 +799,5 @@ theme_override_font_sizes/font_size = 24
 text = "FROG NINJA "
 
 [node name="PauseMenu" parent="." instance=ExtResource("20_pause")]
+
+[node name="HUD" parent="." instance=ExtResource("21_hud")]

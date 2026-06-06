@@ -259,9 +259,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dsjwa")
 }],
-"loop": true,
+"loop": false,
 "name": &"hit",
-"speed": 20.0
+"speed": 28.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -405,7 +405,7 @@ position = Vector2(0, -13)
 shape = SubResource("CapsuleShape2D_vu48p")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.6
+wait_time = 0.4
 one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
