@@ -2,8 +2,6 @@
 
 A 2D pixel platformer built in Godot. The objective is to navigate the terrain, collect coins and dodge enemies without falling off the map.
 
-![](screenshots/1.png)
-
 ## Tech Stack
 * **Engine:** Godot 4 
 * **Language:** GDScript
