@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://dlxb4omb3f41x"]
+[gd_scene format=3 uid="uid://dlxb4omb3f41x"]
 
 [ext_resource type="Texture2D" uid="uid://dkwb8tr1sa0mf" path="res://assets/Free/Main Characters/Ninja Frog/Idle (32x32).png" id="1_e4w5d"]
 [ext_resource type="Script" uid="uid://tihfaxkemc0u" path="res://scripts/player.gd" id="1_vupel"]
@@ -386,25 +386,26 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vu48p"]
 radius = 8.0
-height = 26.0
+height = 24.0
 
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" unique_id=685841335]
 z_index = 5
 collision_layer = 2
 script = ExtResource("1_vupel")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=283531445]
 position = Vector2(5.96046e-08, -17.0206)
 scale = Vector2(1.0625, 1.06121)
 sprite_frames = SubResource("SpriteFrames_qu3p2")
-animation = &"run"
+animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.2450494
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -13)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1242536127]
+position = Vector2(0, -12)
 shape = SubResource("CapsuleShape2D_vu48p")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1683181173]
 wait_time = 0.4
 one_shot = true
 
