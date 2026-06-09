@@ -61,7 +61,7 @@ layout_mode = 2
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="Title" type="Label" parent="MainPanel/Layout/Card/VBox"]
+[node name="Title" type="Label" parent="MainPanel/Layout/Card/VBox" unique_id=1503904377]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.96, 0.9, 0.75, 1)
 theme_override_fonts/font = ExtResource("12_l4mxc")
@@ -69,7 +69,7 @@ theme_override_font_sizes/font_size = 28
 text = "FROG NINJA"
 horizontal_alignment = 1
 
-[node name="Subtitle" type="Label" parent="MainPanel/Layout/Card/VBox"]
+[node name="Subtitle" type="Label" parent="MainPanel/Layout/Card/VBox" unique_id=1264151318]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.85, 0.79, 0.64, 1)
 theme_override_fonts/font = ExtResource("11_bky6r")
@@ -78,11 +78,11 @@ text = "Collect Coins, Avoid Enemies, Falling Hurts..."
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Spacer" type="Control" parent="MainPanel/Layout/Card/VBox"]
+[node name="Spacer" type="Control" parent="MainPanel/Layout/Card/VBox" unique_id=1160986204]
 custom_minimum_size = Vector2(0, 4)
 layout_mode = 2
 
-[node name="ButtonGroup" type="VBoxContainer" parent="MainPanel/Layout/Card/VBox"]
+[node name="ButtonGroup" type="VBoxContainer" parent="MainPanel/Layout/Card/VBox" unique_id=1194053614]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 8
@@ -97,17 +97,17 @@ layout_mode = 2
 text = "Level Select"
 script = ExtResource("2_hover")
 
-[node name="ControlsButton" type="Button" parent="MainPanel/Layout/Card/VBox/ButtonGroup"]
+[node name="ControlsButton" type="Button" parent="MainPanel/Layout/Card/VBox/ButtonGroup" unique_id=365184845]
 layout_mode = 2
 text = "Controls"
 script = ExtResource("2_hover")
 
-[node name="SoundButton" type="Button" parent="MainPanel/Layout/Card/VBox/ButtonGroup"]
+[node name="SoundButton" type="Button" parent="MainPanel/Layout/Card/VBox/ButtonGroup" unique_id=1444708099]
 layout_mode = 2
 text = "Sound"
 script = ExtResource("2_hover")
 
-[node name="ExitButton" type="Button" parent="MainPanel/Layout/Card/VBox/ButtonGroup"]
+[node name="ExitButton" type="Button" parent="MainPanel/Layout/Card/VBox/ButtonGroup" unique_id=1757793776]
 layout_mode = 2
 text = "Exit"
 script = ExtResource("2_hover")
@@ -200,7 +200,7 @@ size_flags_horizontal = 4
 text = "Back"
 script = ExtResource("2_hover")
 
-[node name="ControlsPanel" type="CenterContainer" parent="."]
+[node name="ControlsPanel" type="CenterContainer" parent="." unique_id=593769005]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -208,32 +208,32 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Layout" type="VBoxContainer" parent="ControlsPanel"]
+[node name="Layout" type="VBoxContainer" parent="ControlsPanel" unique_id=945034821]
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="Card" type="PanelContainer" parent="ControlsPanel/Layout"]
+[node name="Card" type="PanelContainer" parent="ControlsPanel/Layout" unique_id=779451806]
 layout_mode = 2
 theme_type_variation = &"WoodPanel"
 
-[node name="VBox" type="VBoxContainer" parent="ControlsPanel/Layout/Card"]
+[node name="VBox" type="VBoxContainer" parent="ControlsPanel/Layout/Card" unique_id=1076099664]
 custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 theme_override_constants/separation = 6
 alignment = 1
 
-[node name="ControlsTitle" type="Label" parent="ControlsPanel/Layout/Card/VBox"]
+[node name="ControlsTitle" type="Label" parent="ControlsPanel/Layout/Card/VBox" unique_id=142430075]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.96, 0.9, 0.75, 1)
 theme_override_font_sizes/font_size = 16
 text = "CONTROLS"
 horizontal_alignment = 1
 
-[node name="Row1" type="HBoxContainer" parent="ControlsPanel/Layout/Card/VBox"]
+[node name="Row1" type="HBoxContainer" parent="ControlsPanel/Layout/Card/VBox" unique_id=418050715]
 layout_mode = 2
 
-[node name="Key1" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row1"]
+[node name="Key1" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row1" unique_id=2035795105]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.96, 0.9, 0.75, 1)
@@ -242,7 +242,7 @@ theme_override_font_sizes/font_size = 10
 text = "Space"
 horizontal_alignment = 2
 
-[node name="Sep1" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row1"]
+[node name="Sep1" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row1" unique_id=1941408658]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.72, 0.55, 0.3, 1)
@@ -251,7 +251,7 @@ theme_override_font_sizes/font_size = 10
 text = "-"
 horizontal_alignment = 1
 
-[node name="Action1" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row1"]
+[node name="Action1" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row1" unique_id=2091124810]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.85, 0.79, 0.64, 1)
@@ -259,10 +259,10 @@ theme_override_fonts/font = ExtResource("11_bky6r")
 theme_override_font_sizes/font_size = 10
 text = "Jump"
 
-[node name="Row2" type="HBoxContainer" parent="ControlsPanel/Layout/Card/VBox"]
+[node name="Row2" type="HBoxContainer" parent="ControlsPanel/Layout/Card/VBox" unique_id=1525480012]
 layout_mode = 2
 
-[node name="Key2" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row2"]
+[node name="Key2" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row2" unique_id=1411145908]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.96, 0.9, 0.75, 1)
@@ -271,7 +271,7 @@ theme_override_font_sizes/font_size = 10
 text = "Space x2"
 horizontal_alignment = 2
 
-[node name="Sep2" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row2"]
+[node name="Sep2" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row2" unique_id=1316820273]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.72, 0.55, 0.3, 1)
@@ -280,7 +280,7 @@ theme_override_font_sizes/font_size = 10
 text = "-"
 horizontal_alignment = 1
 
-[node name="Action2" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row2"]
+[node name="Action2" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row2" unique_id=1351408661]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.85, 0.79, 0.64, 1)
@@ -288,10 +288,10 @@ theme_override_fonts/font = ExtResource("11_bky6r")
 theme_override_font_sizes/font_size = 10
 text = "Double Jump"
 
-[node name="Row3" type="HBoxContainer" parent="ControlsPanel/Layout/Card/VBox"]
+[node name="Row3" type="HBoxContainer" parent="ControlsPanel/Layout/Card/VBox" unique_id=1109572855]
 layout_mode = 2
 
-[node name="Key3" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row3"]
+[node name="Key3" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row3" unique_id=1970301079]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.96, 0.9, 0.75, 1)
@@ -300,7 +300,7 @@ theme_override_font_sizes/font_size = 10
 text = "A / Left"
 horizontal_alignment = 2
 
-[node name="Sep3" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row3"]
+[node name="Sep3" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row3" unique_id=1255180991]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.72, 0.55, 0.3, 1)
@@ -309,7 +309,7 @@ theme_override_font_sizes/font_size = 10
 text = "-"
 horizontal_alignment = 1
 
-[node name="Action3" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row3"]
+[node name="Action3" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row3" unique_id=123947587]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.85, 0.79, 0.64, 1)
@@ -317,10 +317,10 @@ theme_override_fonts/font = ExtResource("11_bky6r")
 theme_override_font_sizes/font_size = 10
 text = "Move Left"
 
-[node name="Row4" type="HBoxContainer" parent="ControlsPanel/Layout/Card/VBox"]
+[node name="Row4" type="HBoxContainer" parent="ControlsPanel/Layout/Card/VBox" unique_id=2027630246]
 layout_mode = 2
 
-[node name="Key4" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row4"]
+[node name="Key4" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row4" unique_id=1443522777]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.96, 0.9, 0.75, 1)
@@ -329,7 +329,7 @@ theme_override_font_sizes/font_size = 10
 text = "D / Right"
 horizontal_alignment = 2
 
-[node name="Sep4" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row4"]
+[node name="Sep4" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row4" unique_id=1424521333]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.72, 0.55, 0.3, 1)
@@ -338,7 +338,7 @@ theme_override_font_sizes/font_size = 10
 text = "-"
 horizontal_alignment = 1
 
-[node name="Action4" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row4"]
+[node name="Action4" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row4" unique_id=1647348322]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.85, 0.79, 0.64, 1)
@@ -346,10 +346,10 @@ theme_override_fonts/font = ExtResource("11_bky6r")
 theme_override_font_sizes/font_size = 10
 text = "Move Right"
 
-[node name="Row5" type="HBoxContainer" parent="ControlsPanel/Layout/Card/VBox"]
+[node name="Row5" type="HBoxContainer" parent="ControlsPanel/Layout/Card/VBox" unique_id=1198424877]
 layout_mode = 2
 
-[node name="Key5" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row5"]
+[node name="Key5" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row5" unique_id=2051618219]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.96, 0.9, 0.75, 1)
@@ -358,7 +358,7 @@ theme_override_font_sizes/font_size = 10
 text = "Esc"
 horizontal_alignment = 2
 
-[node name="Sep5" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row5"]
+[node name="Sep5" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row5" unique_id=1576099044]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.72, 0.55, 0.3, 1)
@@ -367,7 +367,7 @@ theme_override_font_sizes/font_size = 10
 text = "-"
 horizontal_alignment = 1
 
-[node name="Action5" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row5"]
+[node name="Action5" type="Label" parent="ControlsPanel/Layout/Card/VBox/Row5" unique_id=1737272237]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.85, 0.79, 0.64, 1)
@@ -375,17 +375,17 @@ theme_override_fonts/font = ExtResource("11_bky6r")
 theme_override_font_sizes/font_size = 10
 text = "Pause / Resume"
 
-[node name="Spacer" type="Control" parent="ControlsPanel/Layout/Card/VBox"]
+[node name="Spacer" type="Control" parent="ControlsPanel/Layout/Card/VBox" unique_id=1036821931]
 custom_minimum_size = Vector2(0, 2)
 layout_mode = 2
 
-[node name="ControlsBackButton" type="Button" parent="ControlsPanel/Layout/Card/VBox"]
+[node name="ControlsBackButton" type="Button" parent="ControlsPanel/Layout/Card/VBox" unique_id=928863291]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Back"
 script = ExtResource("2_hover")
 
-[node name="SoundPanel" type="CenterContainer" parent="."]
+[node name="SoundPanel" type="CenterContainer" parent="." unique_id=1885253861]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -393,33 +393,33 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Layout" type="VBoxContainer" parent="SoundPanel"]
+[node name="Layout" type="VBoxContainer" parent="SoundPanel" unique_id=1685298365]
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="Card" type="PanelContainer" parent="SoundPanel/Layout"]
+[node name="Card" type="PanelContainer" parent="SoundPanel/Layout" unique_id=559805759]
 layout_mode = 2
 theme_type_variation = &"WoodPanel"
 
-[node name="VBox" type="VBoxContainer" parent="SoundPanel/Layout/Card"]
+[node name="VBox" type="VBoxContainer" parent="SoundPanel/Layout/Card" unique_id=1195408704]
 custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="SoundTitle" type="Label" parent="SoundPanel/Layout/Card/VBox"]
+[node name="SoundTitle" type="Label" parent="SoundPanel/Layout/Card/VBox" unique_id=1680591389]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.96, 0.9, 0.75, 1)
 theme_override_font_sizes/font_size = 16
 text = "SOUND"
 horizontal_alignment = 1
 
-[node name="MasterRow" type="HBoxContainer" parent="SoundPanel/Layout/Card/VBox"]
+[node name="MasterRow" type="HBoxContainer" parent="SoundPanel/Layout/Card/VBox" unique_id=224325783]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="MasterLabel" type="Label" parent="SoundPanel/Layout/Card/VBox/MasterRow"]
+[node name="MasterLabel" type="Label" parent="SoundPanel/Layout/Card/VBox/MasterRow" unique_id=1868107844]
 custom_minimum_size = Vector2(52, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.96, 0.9, 0.75, 1)
@@ -428,20 +428,19 @@ theme_override_font_sizes/font_size = 10
 text = "Master"
 horizontal_alignment = 2
 
-[node name="MasterSlider" type="HSlider" parent="SoundPanel/Layout/Card/VBox/MasterRow"]
+[node name="MasterSlider" type="HSlider" parent="SoundPanel/Layout/Card/VBox/MasterRow" unique_id=1878909793]
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
 size_flags_vertical = 1
-min_value = 0.0
 max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="SFXRow" type="HBoxContainer" parent="SoundPanel/Layout/Card/VBox"]
+[node name="SFXRow" type="HBoxContainer" parent="SoundPanel/Layout/Card/VBox" unique_id=285015884]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="SFXLabel" type="Label" parent="SoundPanel/Layout/Card/VBox/SFXRow"]
+[node name="SFXLabel" type="Label" parent="SoundPanel/Layout/Card/VBox/SFXRow" unique_id=1100507162]
 custom_minimum_size = Vector2(52, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.96, 0.9, 0.75, 1)
@@ -450,20 +449,19 @@ theme_override_font_sizes/font_size = 10
 text = "SFX"
 horizontal_alignment = 2
 
-[node name="SFXSlider" type="HSlider" parent="SoundPanel/Layout/Card/VBox/SFXRow"]
+[node name="SFXSlider" type="HSlider" parent="SoundPanel/Layout/Card/VBox/SFXRow" unique_id=1382220106]
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
 size_flags_vertical = 1
-min_value = 0.0
 max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="MusicRow" type="HBoxContainer" parent="SoundPanel/Layout/Card/VBox"]
+[node name="MusicRow" type="HBoxContainer" parent="SoundPanel/Layout/Card/VBox" unique_id=36630854]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="MusicLabel" type="Label" parent="SoundPanel/Layout/Card/VBox/MusicRow"]
+[node name="MusicLabel" type="Label" parent="SoundPanel/Layout/Card/VBox/MusicRow" unique_id=1851811962]
 custom_minimum_size = Vector2(52, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.96, 0.9, 0.75, 1)
@@ -472,20 +470,19 @@ theme_override_font_sizes/font_size = 10
 text = "Music"
 horizontal_alignment = 2
 
-[node name="MusicSlider" type="HSlider" parent="SoundPanel/Layout/Card/VBox/MusicRow"]
+[node name="MusicSlider" type="HSlider" parent="SoundPanel/Layout/Card/VBox/MusicRow" unique_id=1079387689]
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
 size_flags_vertical = 1
-min_value = 0.0
 max_value = 1.0
 step = 0.01
 value = 0.5
 
-[node name="Spacer" type="Control" parent="SoundPanel/Layout/Card/VBox"]
+[node name="Spacer" type="Control" parent="SoundPanel/Layout/Card/VBox" unique_id=181917425]
 custom_minimum_size = Vector2(0, 2)
 layout_mode = 2
 
-[node name="SoundBackButton" type="Button" parent="SoundPanel/Layout/Card/VBox"]
+[node name="SoundBackButton" type="Button" parent="SoundPanel/Layout/Card/VBox" unique_id=772589987]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Back"
